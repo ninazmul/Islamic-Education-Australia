@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[620px] overflow-hidden">
-      <div className="absolute flex flex-col lg:flex-row items-center justify-around p-20 z-20">
+    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[950px] lg:min-h-[620px] overflow-hidden">
+      <div className="absolute flex flex-col lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 md:gap-0">
         <div className="w-full lg:w-1/2">
           <Image
             src="/assets/images/Service/knowledge.png"
@@ -27,18 +27,18 @@ const Hero = () => {
             excellence, Islamic values, and moral integrity. Join us in building
             a confident and balanced generation of Australian Muslims.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <Button className="rounded-md bg-primary-500 text-white font-bold px-6 py-2 hover:bg-yellow-400 flex items-center gap-2">
               Learn More
             </Button>
-            <Button className="rounded-md bg-yellow-400 text-white font-bold px-6 py-2 hover:bg-primary-500 flex items-center gap-2">
+            <Button className="rounded-md bg-yellow-400 text-primary-900 font-bold px-6 py-2 hover:bg-primary-500 flex items-center gap-2">
               Contact Us
             </Button>
           </div>
         </div>
       </div>
-      <div className="absolute -right-20 -top-20 rounded-full p-40 bg-yellow-400 " />
-      <div className="absolute left-0 lg:w-64 bg-yellow-400 lg:min-h-screen" />
+      <div className="absolute -right-20 top-[90%] lg:-top-20 rounded-full p-24 lg:p-36 bg-primary-500 lg:bg-yellow-400 " />
+      <div className="absolute top-0 left-0 w-full h-64 lg:left-0 lg:w-64 bg-yellow-400 lg:min-h-screen" />
     </div>
   );
 };
