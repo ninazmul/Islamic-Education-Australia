@@ -1,6 +1,6 @@
 import BlogCollection from "@/components/shared/BlogCollection";
-import CallToAction from "@/components/shared/CallToAction";
 import { ContactUs } from "@/components/shared/ContactUs";
+import Hero from "@/components/shared/Hero";
 import Search from "@/components/shared/Search";
 import ServicesCollection from "@/components/shared/ServicesCollection";
 import { getAllBlogs } from "@/lib/actions/blog.actions";
@@ -14,7 +14,6 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const currentPage = Number(page) || 1;
   const searchText = (query as string) || "";
 
-
   const blogs = await getAllBlogs({
     query: searchText,
     page: currentPage,
@@ -23,8 +22,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
-        <CallToAction />
+      <section className="">
+        <Hero />
       </section>
 
       <section
