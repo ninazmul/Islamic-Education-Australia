@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[950px] lg:min-h-[620px] overflow-hidden">
+    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[1070px] lg:min-h-[680px] overflow-hidden">
       <div className="absolute flex flex-col lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="flex justify-center w-full lg:w-1/2">
           <Image
@@ -22,10 +22,12 @@ const Hero = () => {
             <span className="text-primary-500">Faith and Education</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20">
-            At Muslim College Sydney, we are dedicated to nurturing young minds
-            and shaping the future by providing a strong foundation of academic
-            excellence, Islamic values, and moral integrity. Join us in building
-            a confident and balanced generation of Australian Muslims.
+            At Islamic Education Australia, our vision is to be a leading force
+            in shaping a generation of knowledgeable, compassionate, and
+            ethically grounded individuals who embody the values of Islam in
+            their daily lives. We aim to create an inclusive educational
+            environment that not only imparts academic knowledge but also
+            instils a strong sense of spiritual and moral responsibility.
           </p>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <Button className="rounded-md bg-primary-500 text-white font-bold px-6 py-2 hover:bg-yellow-400 flex items-center gap-2">
