@@ -3,6 +3,7 @@ import { ContactUs } from "@/components/shared/ContactUs";
 import Hero from "@/components/shared/Hero";
 import Search from "@/components/shared/Search";
 import ServicesCollection from "@/components/shared/ServicesCollection";
+import ShortAbout from "@/components/shared/ShortAbout";
 import { getAllBlogs } from "@/lib/actions/blog.actions";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
@@ -24,6 +25,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
     <>
       <section className="">
         <Hero />
+      </section>
+      <section className="bg-gray-50">
+        <ShortAbout />
       </section>
 
       <section
