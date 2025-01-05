@@ -1,118 +1,115 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className=" bg-gradient-to-r from-primary-900 to-primary-500 text-white dark:text-green-200 py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-6 items-center">
+    <footer className="bg-gray-50 py-12 border-t border-gray-200">
+      <div className="max-w-5xl mx-auto px-4">
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo */}
           <div>
-            <Link href="/" className="flex items-center">
+            <Link href="/">
               <Image
-                src={"/assets/images/logo.png"}
-                width={100}
-                height={100}
-                alt="OneSoul Logo"
-                className=""
+                src="/assets/images/logo.png"
+                width={200}
+                height={200}
+                alt="IEA Logo"
                 priority
+                className="mx-auto lg:mx-0"
               />
-              <h1 className="text-2xl lg:text-4xl font-serif font-bold">
-                One Soul Muslim Community Inc.
-              </h1>
             </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-            {/* Organization Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Organization</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events" className="hover:underline">
-                    Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:underline">
-                    About Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
 
-            {/* Follow Us Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Follow us</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="https://www.facebook.com/OneSoul.bd"
-                    target="_blank"
-                    className="hover:underline flex items-center gap-2"
-                  >
-                    <Facebook className="h-4 w-4" />
-                    Facebook
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.instagram.com/oneSoul_bd"
-                    target="_blank"
-                    className="hover:underline flex items-center gap-2"
-                  >
-                    <Instagram className="h-4 w-4" />
-                    Instagram
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://x.com/OneSoul_BD"
-                    target="_blank"
-                    className="hover:underline flex items-center gap-2"
-                  >
-                    <Twitter className="h-4 w-4" />X
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* About Section */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">
+              About Muslim College Sydney
+            </h4>
+            <p className="text-gray-600">
+              Muslim College Sydney fosters academic excellence and Islamic
+              values, shaping confident Australian Muslims.
+            </p>
+          </div>
 
-            {/* Legal Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacyPolicy" className="hover:underline">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/termsAndConditions" className="hover:underline">
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Projects Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">
+              Projects
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="https://www.facebook.com/OneSoul.bd"
+                  target="_blank"
+                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                >
+                  School
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.instagram.com/oneSoul_bd"
+                  target="_blank"
+                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                >
+                  Muslim Community Center (including Mosque)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Useful Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4 text-gray-800">
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/"
+                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <hr className="my-6 border-t border-green-300" />
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
-          <p className="text-sm">
-            Copyright © 2025 - All rights reserved by{" "}
-            <Link href="/" className="hover:underline">
-              One Soul Muslim Community Incorporation
+
+        {/* Divider */}
+        <hr className="my-8 border-gray-300" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-4">
+          <p className="text-sm text-gray-500">
+            &copy; 2025 Islamic Education Australia Ltd. All rights reserved.{" "}
+            <Link href="/" className="text-green-600 hover:underline">
+              Learn More
             </Link>
           </p>
-          <p className="text-sm flex items-center gap-2">
+          <p className="text-sm text-gray-500">
             Developed by{" "}
             <Link
               href="https://ninazmuldev.vercel.app"
               target="_blank"
-              className="underline hover:text-green-300"
+              className="text-green-600 hover:underline"
             >
               ArtistyCode Studio
             </Link>

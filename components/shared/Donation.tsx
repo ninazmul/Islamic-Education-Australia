@@ -63,7 +63,7 @@ const Donation = () => {
     <>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger>
-          <Button className="rounded-full bg-[#FFD700] text-[#003f3e] font-bold px-6 py-2 hover:bg-yellow-400 flex items-center gap-2">
+          <Button className="rounded-md bg-primary-500 text-white font-bold px-6 py-2 hover:bg-yellow-400 flex items-center gap-2">
             <HandHeartIcon /> <span>Donate</span>
           </Button>
         </SheetTrigger>
@@ -78,26 +78,6 @@ const Donation = () => {
             </SheetDescription>
           </SheetHeader>
           <div className="py-5 border-t border-gray-300 mt-3">
-            <h1 className="text-lg font-semibold text-gray-800 mb-2">
-              Bank Account Information
-            </h1>
-            <div className="text-gray-700 space-y-1">
-              <p>
-                <span className="font-medium">Account Name:</span> One Soul
-                Muslim Community Inc.
-              </p>
-              <p>
-                <span className="font-medium">BSB:</span> 082-356
-              </p>
-              <p>
-                <span className="font-medium">Account:</span> 437-642-145
-              </p>
-            </div>
-          </div>
-          <div className="py-5 border-t border-gray-300 mt-3">
-            <h1 className="text-lg font-semibold text-gray-800 mb-2 text-center">
-              Or
-            </h1>
             <form
               onSubmit={onCheckout}
               className="flex flex-col justify-center w-full space-y-4"
@@ -106,7 +86,7 @@ const Donation = () => {
                 htmlFor="amount"
                 className="text-sm font-medium text-gray-700"
               >
-                Donation Amount (USD)
+                Donation Amount (AUD)
               </label>
               <input
                 type="number"

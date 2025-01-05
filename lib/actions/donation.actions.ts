@@ -13,7 +13,7 @@ export const checkoutDonation = async (donation: { amount: number }) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: "aud",
             unit_amount: Math.round(donation.amount * 100),
             product_data: {
               name: "Donation",

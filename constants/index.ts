@@ -20,7 +20,7 @@ export const headerLinks = [
     route: "/about",
   },
   {
-    label: "Contact With Us",
+    label: "Contact Us",
     route: "/contact",
   },
   {

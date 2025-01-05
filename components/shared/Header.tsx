@@ -13,64 +13,71 @@ import { isAdmin } from "@/lib/actions/admin.actions";
 
 export default async function Header() {
   const { sessionClaims } = await auth();
-
   const userId = sessionClaims?.userId as string;
   const email = await getUserEmailById(userId);
   const adminStatus = await isAdmin(email);
+
   return (
-    <header className="w-full border-b text-white bg-gradient-to-r from-primary-900 to-primary-500">
-      <div className="wrapper flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+    <header className="w-full border-b bg-gray-50">
+      {/* Top Section */}
+      <div className="container mx-auto flex items-center justify-between py-4 px-4">
+        {/* Logo and Title */}
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/assets/images/logo.png"
-            width={30}
-            height={30}
-            alt="One Soul Muslim logo"
-          />{" "}
-          <h1 className="text-lg md:text-3xl font-serif font-bold">
-            One Soul Muslim Community Inc.
+            width={50}
+            height={50}
+            alt="Islamic Education Australia Ltd logo"
+          />
+          <h1 className="text-lg md:text-2xl font-serif font-bold text-gray-800">
+            Islamic Education Australia Ltd
           </h1>
         </Link>
+
+        {/* Donation Button */}
         <Donation />
       </div>
 
-      <hr className=" border-t border-green-300" />
+      <hr className="border-t border-gray-200" />
 
-      <div className="wrapper flex items-center justify-between">
-        <div>
-          <nav className="lg:flex-between hidden w-full max-w-xs">
-            <NavItems />
-          </nav>
-          <MobileNav />
+      {/* Navigation Section */}
+      <div className="container mx-auto flex items-center justify-between py-4 px-4">
+        {/* Navigation Links */}
+        <div className="hidden lg:flex gap-8">
+          <NavItems />
         </div>
+        <MobileNav />
 
-        <div className="flex items-center gap-x-2">
-          <div className="flex items-center gap-3">
-            <SignedIn>
-              {adminStatus && (
-                <Button
-                  asChild
-                  variant={"outline"}
-                  size={"sm"}
-                  className="rounded-full"
-                >
-                  <Link href="/dashboard">
-                    <Shield />
-                    Admin
-                  </Link>
-                </Button>
-              )}
-              <UserButton afterSwitchSessionUrl="/" />
-            </SignedIn>
-            <SignedOut>
-              <Button asChild variant={"outline"} className="rounded-full">
-                <Link href="/sign-in">
-                  <LogIn />
-                  <span className="">Login</span>
+        {/* User Actions */}
+        <div className="flex items-center gap-4">
+          <SignedIn>
+            {adminStatus && (
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+              >
+                <Link href="/dashboard">
+                  <Shield className="w-4 h-4" />
+                  Admin
                 </Link>
               </Button>
-            </SignedOut>
-          </div>
+            )}
+            <UserButton afterSwitchSessionUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <Button
+              asChild
+              variant="outline"
+              className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+            >
+              <Link href="/sign-in">
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </Link>
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </header>
