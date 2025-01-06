@@ -3,6 +3,7 @@ import { ContactUs } from "@/components/shared/ContactUs";
 import HelpToChange from "@/components/shared/HelpToChange";
 import Hero from "@/components/shared/Hero";
 import OurMission from "@/components/shared/OurMission";
+import OurVision from "@/components/shared/OurVision";
 import Search from "@/components/shared/Search";
 import ServicesCollection from "@/components/shared/ServicesCollection";
 import ShortAbout from "@/components/shared/ShortAbout";
@@ -36,6 +37,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
       </section>
       <section className="bg-gray-50">
         <OurMission />
+      </section>
+      <section className="bg-gray-50">
+        <OurVision />
       </section>
 
       <section
