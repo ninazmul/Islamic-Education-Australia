@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[1070px] lg:min-h-[680px] overflow-hidden">
+    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center h-[1070px] md:h-[900px] lg:h-[680px] overflow-hidden">
       <div className="absolute flex flex-col lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="flex justify-center w-full lg:w-1/2">
           <Image
