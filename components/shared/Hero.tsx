@@ -17,8 +17,7 @@ const Hero = () => {
         </div>
         <div className="w-full lg:w-1/2 space-y-4">
           <h1 className="h1-bold">
-            Empowering Future Leaders through
-            <br />
+            Empowering Future Leaders through{" "}
             <span className="text-primary-500">Faith and Education</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20">

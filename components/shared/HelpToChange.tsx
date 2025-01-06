@@ -9,8 +9,7 @@ const HelpToChange = () => {
             Be Part of a Lasting Impact
           </h3>
           <h1 className="h2-bold">
-            Help To Change a
-            <br />
+            Help To Change a{" "}
             <span className="text-primary-500">Life Forever</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
