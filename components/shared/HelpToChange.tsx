@@ -1,10 +1,8 @@
-import React from "react";
-import { Button } from "../ui/button";
 import Image from "next/image";
 
 const HelpToChange = () => {
   return (
-    <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center min-h-[1070px] lg:min-h-[600px] overflow-hidden">
+    <div className="relative min-h-[1070px] lg:min-h-[530px] overflow-hidden">
       <div className="absolute flex flex-col lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="w-full lg:w-1/2 space-y-4">
           <h3 className="p-medium-12 md:p-medium-16 text-primary-500">
@@ -23,14 +21,6 @@ const HelpToChange = () => {
             faith. Together, we can shape the leaders of tomorrow and strengthen
             our community.
           </p>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <Button className="rounded-md bg-primary-500 text-white font-bold px-6 py-2 hover:bg-yellow-400 flex items-center gap-2">
-              Learn More
-            </Button>
-            <Button className="rounded-md bg-yellow-400 text-primary-900 font-bold px-6 py-2 hover:bg-primary-500 flex items-center gap-2">
-              Contact Us
-            </Button>
-          </div>
         </div>
         <div className="flex justify-center w-full lg:w-1/2 relative">
           <Image
@@ -38,14 +28,12 @@ const HelpToChange = () => {
             width={500}
             height={500}
             alt="Islamic Education Australia Ltd logo"
-            className="w-2/3 z-10"
+            className="w-full md:w-2/3 z-10"
           />
-          <div className="absolute left-[65%] md:-top-[13%] lg:-top-[20%] rounded-none p-20 bg-yellow-400 " />
-          <div className="absolute md:left-[11.5%] lg:left-[8%] md:-bottom-[12%] lg:-bottom-[20%] rounded-none p-20 bg-yellow-400 " />
+          <div className="absolute -right-[7%] md:right-[11.5%] lg:right-[8%] -top-[12%] md:-top-[13%] lg:-top-[20%] rounded-none p-20 bg-yellow-400 " />
+          <div className="absolute -left-[7%] md:left-[11.5%] lg:left-[8%] -bottom-[12%] md:-bottom-[12%] lg:-bottom-[20%] rounded-none p-20 bg-yellow-400 " />
         </div>
       </div>
-      {/* <div className="absolute left-[80%] top-[15%] rounded-none p-20 bg-primary-500 lg:bg-yellow-400 " />
-      <div className="absolute right-[35.5%] bottom-[20%] rounded-none p-20 bg-primary-500 lg:bg-yellow-400 " /> */}
     </div>
   );
 };
