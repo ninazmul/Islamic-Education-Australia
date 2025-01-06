@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HelpToChange = () => {
   return (
-    <div className="relative min-h-[1070px] lg:min-h-[530px] overflow-hidden">
+    <div className="relative h-[750px] md:h-[800px] lg:h-[530px] overflow-hidden">
       <div className="absolute flex flex-col lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="w-full lg:w-1/2 space-y-4">
           <h3 className="p-medium-12 md:p-medium-16 text-primary-500">

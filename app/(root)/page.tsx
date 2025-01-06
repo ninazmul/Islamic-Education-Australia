@@ -34,9 +34,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
       <section className="bg-gray-50">
         <HelpToChange />
       </section>
-      <section className="bg-gray-50">
+      {/* <section className="bg-gray-50">
         <OurMission />
-      </section>
+      </section> */}
 
       <section
         id="blogs"
