@@ -34,6 +34,7 @@ export default function ScrollHeaderWrapper({
           ? "transform translate-y-0 shadow-black/20 shadow-lg"
           : "transform -translate-y-full"
       }`}
+      style={{ height: "82px" }} 
     >
       {children}
     </div>
