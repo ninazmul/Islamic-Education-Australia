@@ -29,7 +29,7 @@ export default async function Header() {
             height={50}
             alt="Islamic Education Australia Ltd logo"
           />
-          <h1 className="text-lg md:text-2xl font-serif font-bold text-gray-800">
+          <h1 className="hidden md:flex text-lg md:text-2xl font-serif font-bold text-gray-800">
             Islamic Education Australia Ltd
           </h1>
         </Link>
