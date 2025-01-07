@@ -20,7 +20,7 @@ export default async function handler(
         line_items: [
           {
             price_data: {
-              currency: "usd", // You can change the currency if necessary
+              currency: "aud", // You can change the currency if necessary
               product_data: {
                 name: "Donation", // You can customize the product name
               },
