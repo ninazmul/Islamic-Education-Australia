@@ -29,12 +29,11 @@ export default function ScrollHeaderWrapper({
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full transition-transform duration-300 z-[99999] ${
+      className={`fixed top-0 left-0 w-full transition-transform duration-300 z-[90] ${
         showHeader
           ? "transform translate-y-0 shadow-black/20 shadow-lg"
           : "transform -translate-y-full"
       }`}
-      style={{ height: "82px" }} 
     >
       {children}
     </div>
