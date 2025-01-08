@@ -4,7 +4,11 @@ import { headerLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavItems = () => {
+interface NavItemsProps {
+  onItemSelected?: () => void;
+}
+
+const NavItems = ({ onItemSelected }: NavItemsProps) => {
   const pathname = usePathname();
 
   return (
@@ -16,10 +20,12 @@ const NavItems = () => {
           <li
             key={link.route}
             className={`${
-              isActive && "border-b border-black"
+              isActive && "lg:text-white border-b border-black lg:border-white"
             } flex-center p-medium-16 whitespace-nowrap`}
           >
-            <Link href={link.route}>{link.label}</Link>
+            <Link href={link.route} onClick={onItemSelected}>
+              {link.label}
+            </Link>
           </li>
         );
       })}

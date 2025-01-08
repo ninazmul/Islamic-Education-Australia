@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 py-12 border-t border-gray-200">
+    <footer className="py-12 text-white bg-gradient-to-r from-primary-900 to-primary-500">
       <div className="max-w-5xl mx-auto px-4">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -23,10 +23,10 @@ const Footer = () => {
 
           {/* About Section */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">
+            <h4 className="font-semibold text-lg mb-4 ">
               About Muslim College Sydney
             </h4>
-            <p className="text-gray-600">
+            <p className="text-gray-200">
               Muslim College Sydney fosters academic excellence and Islamic
               values, shaping confident Australian Muslims.
             </p>
@@ -34,15 +34,13 @@ const Footer = () => {
 
           {/* Projects Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">
-              Projects
-            </h4>
+            <h4 className="font-semibold text-lg mb-4 ">Projects</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="https://www.facebook.com/OneSoul.bd"
                   target="_blank"
-                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                  className="text-gray-200 hover:text-green-300 transition-colors flex items-center"
                 >
                   School
                 </Link>
@@ -51,7 +49,7 @@ const Footer = () => {
                 <Link
                   href="https://www.instagram.com/oneSoul_bd"
                   target="_blank"
-                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                  className="text-gray-200 hover:text-green-300 transition-colors flex items-center"
                 >
                   Muslim Community Center (including Mosque)
                 </Link>
@@ -61,14 +59,12 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-gray-800">
-              Quick Links
-            </h4>
+            <h4 className="font-semibold text-lg mb-4 ">Quick Links</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                  className="text-gray-200 hover:text-green-300 transition-colors flex items-center"
                 >
                   Home
                 </Link>
@@ -76,7 +72,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                  className="text-gray-200 hover:text-green-300 transition-colors flex items-center"
                 >
                   About Us
                 </Link>
@@ -84,7 +80,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-600 hover:text-green-600 transition-colors flex items-center"
+                  className="text-gray-200 hover:text-green-300 transition-colors flex items-center"
                 >
                   Contact Us
                 </Link>
@@ -98,18 +94,18 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-4">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-300">
             &copy; 2025 Islamic Education Australia Ltd. All rights reserved.{" "}
-            <Link href="/" className="text-green-600 hover:underline">
+            <Link href="/" className="text-green-200 hover:underline">
               Learn More
             </Link>
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-300">
             Developed by{" "}
             <Link
               href="https://ninazmuldev.vercel.app"
               target="_blank"
-              className="text-green-600 hover:underline"
+              className="text-green-200 hover:underline"
             >
               ArtistyCode Studio
             </Link>

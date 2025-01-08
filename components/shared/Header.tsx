@@ -18,7 +18,7 @@ export default async function Header() {
   const adminStatus = await isAdmin(email);
 
   return (
-    <header className="w-full border-b bg-gray-50">
+    <header className="w-full text-white bg-gradient-to-r from-primary-900 to-primary-500">
       {/* Top Section */}
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo and Title */}
@@ -29,7 +29,7 @@ export default async function Header() {
             height={50}
             alt="Islamic Education Australia Ltd logo"
           />
-          <h1 className="hidden md:flex text-lg md:text-2xl font-serif font-bold text-gray-800">
+          <h1 className="hidden md:flex text-lg md:text-2xl lg:text-4xl font-serif font-bold">
             Islamic Education Australia Ltd
           </h1>
         </Link>
