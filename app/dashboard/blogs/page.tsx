@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { getAllBlogs } from "@/lib/actions/blog.actions";
-import BlogTable from "../components/BlogTable";
+import { getAllEvents } from "@/lib/actions/event.actions";
+import EventTable from "../components/EventTable";
 import { SearchParamProps } from "@/types";
 import Search from "@/components/shared/Search";
 
@@ -11,7 +11,7 @@ const page = async ({ searchParams }: SearchParamProps) => {
   const currentPage = Number(page) || 1;
   const searchText = (query as string) || "";
 
-  const blogs = await getAllBlogs({
+  const events = await getAllEvents({
     query: searchText,
     page: currentPage,
     limit: 6,
@@ -21,9 +21,9 @@ const page = async ({ searchParams }: SearchParamProps) => {
     <>
       <section className="bg-green-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex flex-wrap justify-between items-center">
-          <h3 className="h3-bold text-center sm:text-left">All Blogs</h3>
+          <h3 className="h3-bold text-center sm:text-left">All Events</h3>
           <Button asChild size="lg" className="rounded-full">
-            <Link href="/dashboard/blogs/create">Create Blog</Link>
+            <Link href="/dashboard/events/create">Create Event</Link>
           </Button>
         </div>
       </section>
@@ -32,13 +32,13 @@ const page = async ({ searchParams }: SearchParamProps) => {
         <div className="w-full md:w-1/2 lg:w-1/3 my-6">
           <Search />
         </div>
-        <BlogTable
-          data={blogs?.data}
-          emptyTitle="No Blogs Found"
+        <EventTable
+          data={events?.data}
+          emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
           limit={6}
           page={currentPage}
-          totalPages={blogs?.totalPages}
+          totalPages={events?.totalPages}
         />
       </div>
     </>

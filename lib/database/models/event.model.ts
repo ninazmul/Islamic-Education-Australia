@@ -1,6 +1,6 @@
 import { Document, Schema, model, models } from "mongoose";
 
-export interface IBlog extends Document {
+export interface IEvent extends Document {
   _id: string;
   title: string;
   description?: string;
@@ -10,7 +10,7 @@ export interface IBlog extends Document {
   url?: string;
 }
 
-const BlogSchema = new Schema({
+const EventSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
   location: { type: String },
@@ -19,6 +19,6 @@ const BlogSchema = new Schema({
   url: { type: String },
 });
 
-const Blog = models.Blog || model("Blog", BlogSchema);
+const Event = models.Event || model("Event", EventSchema);
 
-export default Blog;
+export default Event;

@@ -1,10 +1,10 @@
-import { IBlog } from "@/lib/database/models/blog.model";
+import { IEvent } from "@/lib/database/models/event.model";
 import React from "react";
 import Pagination from "./Pagination";
-import BlogCard from "./BlogCard";
+import EventCard from "./EventCard";
 
 type CollectionProps = {
-  data: IBlog[];
+  data: IEvent[];
   emptyTitle: string;
   emptyStateSubtext: string;
   limit: number;
@@ -13,7 +13,7 @@ type CollectionProps = {
   urlParamName?: string;
 };
 
-const BlogCollection = ({
+const EventCollection = ({
   data,
   emptyTitle,
   emptyStateSubtext,
@@ -26,11 +26,11 @@ const BlogCollection = ({
       {data.length > 0 ? (
         <div className="flex flex-col items-center gap-10">
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-            {data.map((blog) => {
+            {data.map((event) => {
 
               return (
-                <li key={blog._id} className="flex justify-center">
-                  <BlogCard blog={blog} />
+                <li key={event._id} className="flex justify-center">
+                  <EventCard event={event} />
                 </li>
               );
             })}
@@ -54,4 +54,4 @@ const BlogCollection = ({
   );
 };
 
-export default BlogCollection;
+export default EventCollection;

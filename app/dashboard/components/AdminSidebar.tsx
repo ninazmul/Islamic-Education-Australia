@@ -18,7 +18,6 @@ import {
   Shield,
   Images,
   ListOrderedIcon,
-  FileText,
   ImageIcon,
   FilesIcon,
 } from "lucide-react";
@@ -51,11 +50,6 @@ const sidebarItems = [
     title: "Categories",
     url: "/dashboard/categories",
     icon: Grid,
-  },
-  {
-    title: "Blogs",
-    url: "/dashboard/blogs",
-    icon: FileText,
   },
   {
     title: "Banners",

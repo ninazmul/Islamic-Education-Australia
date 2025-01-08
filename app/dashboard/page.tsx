@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { getAllBlogs } from "@/lib/actions/blog.actions";
+import { getAllEvents } from "@/lib/actions/event.actions";
 import { getAllRegistrations } from "@/lib/actions/registration.actions";
 import { useEffect, useState } from "react";
 import { Clipboard, MessageSquare } from "lucide-react";
@@ -29,18 +29,18 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [events, setEvents] = useState([]);
   const [registrations, setRegistrations] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [blogsData, registrationsData] = await Promise.all([
-          getAllBlogs({ query: "", page: 1, limit: 10 }),
+        const [eventsData, registrationsData] = await Promise.all([
+          getAllEvents({ query: "", page: 1, limit: 10 }),
           getAllRegistrations(),
         ]);
 
-        setBlogs(blogsData?.data || []);
+        setEvents(eventsData?.data || []);
         setRegistrations(registrationsData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -50,9 +50,9 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  const labels = ["Registrations", "Blogs"];
+  const labels = ["Registrations", "Events"];
 
-  const datasetValues = [registrations.length, blogs.length];
+  const datasetValues = [registrations.length, events.length];
 
   const pieData = {
     labels,
@@ -121,8 +121,8 @@ const Dashboard = () => {
         />
         <DashboardCard
           icon={<MessageSquare className="text-3xl text-yellow-500" />}
-          title="Blogs"
-          value={`${blogs.length}`}
+          title="Events"
+          value={`${events.length}`}
         />
       </div>
       <div className="mt-8">

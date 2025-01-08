@@ -1,5 +1,5 @@
-import BlogForm from "@/app/dashboard/components/BlogForm";
-import { getBlogById } from "@/lib/actions/blog.actions";
+import EventForm from "@/app/dashboard/components/EventForm";
+import { getEventById } from "@/lib/actions/event.actions";
 import { auth } from "@clerk/nextjs/server";
 
 type PageProps = {
@@ -8,26 +8,26 @@ type PageProps = {
   }>;
 };
 
-const UpdateBlog = async ({ params }: PageProps) => {
+const UpdateEvent = async ({ params }: PageProps) => {
   const { sessionClaims } = await auth();
 
   const userId = sessionClaims?.userId as string;
   const resolvedParams = await params;
-  const blog = await getBlogById(resolvedParams.id);
+  const event = await getEventById(resolvedParams.id);
 
   return (
     <>
       <section className="bg-green-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <h3 className="wrapper h3-bold text-center sm:text-left">
-          Update Blog
+          Update Event
         </h3>
       </section>
 
       <div className="wrapper my-8">
-        <BlogForm type="Update" blog={blog} blogId={blog._id} userId={userId} />
+        <EventForm type="Update" event={event} eventId={event._id} userId={userId} />
       </div>
     </>
   );
 };
 
-export default UpdateBlog;
+export default UpdateEvent;

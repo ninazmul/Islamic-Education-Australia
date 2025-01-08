@@ -15,10 +15,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { deleteBlog } from "@/lib/actions/blog.actions";
+import { deleteEvent } from "@/lib/actions/event.actions";
 
 
-export const BlogDeleteConfirmation = ({ blogId }: { blogId: string }) => {
+export const EventDeleteConfirmation = ({ eventId }: { eventId: string }) => {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
@@ -37,7 +37,7 @@ export const BlogDeleteConfirmation = ({ blogId }: { blogId: string }) => {
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure you want to delete?</AlertDialogTitle>
           <AlertDialogDescription className="p-regular-16 text-grey-600">
-            This will permanently delete this blog
+            This will permanently delete this event
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -47,7 +47,7 @@ export const BlogDeleteConfirmation = ({ blogId }: { blogId: string }) => {
           <AlertDialogAction
             onClick={() =>
               startTransition(async () => {
-                await deleteBlog({ blogId, path: pathname });
+                await deleteEvent({ eventId, path: pathname });
               })
             }
           >

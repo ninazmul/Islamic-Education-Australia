@@ -13,11 +13,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SortAsc, SortDesc } from "lucide-react";
-import { IBlog } from "@/lib/database/models/blog.model";
-import { BlogDeleteConfirmation } from "./BlogDeleteConfirmation";
+import { IEvent } from "@/lib/database/models/event.model";
+import { EventDeleteConfirmation } from "./EventDeleteConfirmation";
 
-type BlogsProps = {
-  data: IBlog[];
+type EventsProps = {
+  data: IEvent[];
   emptyTitle: string;
   emptyStateSubtext: string;
   limit: number;
@@ -26,14 +26,14 @@ type BlogsProps = {
   urlParamName?: string;
 };
 
-const BlogTable = ({
+const EventTable = ({
   data,
   emptyTitle,
   emptyStateSubtext,
   page,
   totalPages = 0,
   urlParamName,
-}: BlogsProps) => {
+}: EventsProps) => {
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
@@ -48,8 +48,8 @@ const BlogTable = ({
 
   const sortedData = [...data].sort((a, b) => {
     if (!sortColumn) return 0;
-    const aValue = a[sortColumn as keyof IBlog];
-    const bValue = b[sortColumn as keyof IBlog];
+    const aValue = a[sortColumn as keyof IEvent];
+    const bValue = b[sortColumn as keyof IEvent];
     if (typeof aValue === "string" && typeof bValue === "string") {
       return sortDirection === "asc"
         ? aValue.localeCompare(bValue)
@@ -76,7 +76,7 @@ const BlogTable = ({
                   onClick={() => handleSort("title")}
                 >
                   <span className="flex items-center gap-1">
-                    Blog Title{" "}
+                    Event Title{" "}
                     {sortColumn === "title" && (
                       <>
                         {sortDirection === "asc" ? (
@@ -102,15 +102,15 @@ const BlogTable = ({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {sortedData.map((blog, index) => {
+              {sortedData.map((event, index) => {
 
                 return (
-                  <TableRow key={blog._id}>
+                  <TableRow key={event._id}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
                       <Image
-                        src={blog.imageUrl}
-                        alt={blog.title}
+                        src={event.imageUrl}
+                        alt={event.title}
                         width={50}
                         height={50}
                         className="object-cover rounded-md"
@@ -118,24 +118,24 @@ const BlogTable = ({
                     </TableCell>
                     <TableCell>
                       <Link
-                        href={`/blogs/${blog._id}`}
+                        href={`/events/${event._id}`}
                         className="line-clamp-1 w-40 md:w-auto hover:underline"
                       >
-                        {blog.title}
+                        {event.title}
                       </Link>
                     </TableCell>
                     <TableCell>
-                      <span className="line-clamp-1">{blog.location}</span>
+                      <span className="line-clamp-1">{event.location}</span>
                     </TableCell>
                     <TableCell>
                       <span className="line-clamp-1">
-                        {new Date(blog.createdAt).toLocaleDateString()}
+                        {new Date(event.createdAt).toLocaleDateString()}
                       </span>
                     </TableCell>
                     
                     <TableCell>
                       <div className="flex items-center gap-4">
-                        <Link href={`/dashboard/blogs/${blog._id}/update`}>
+                        <Link href={`/dashboard/events/${event._id}/update`}>
                           <Image
                             src="/assets/icons/edit.svg"
                             alt="edit"
@@ -143,7 +143,7 @@ const BlogTable = ({
                             height={20}
                           />
                         </Link>
-                        <BlogDeleteConfirmation blogId={blog._id} />
+                        <EventDeleteConfirmation eventId={event._id} />
                       </div>
                     </TableCell>
                   </TableRow>
@@ -170,4 +170,4 @@ const BlogTable = ({
   );
 };
 
-export default BlogTable;
+export default EventTable;

@@ -4,16 +4,16 @@ export const headerLinks = [
     route: "/",
   },
   {
-    label: "Events",
-    route: "/events",
+    label: "Programs",
+    route: "/programs",
   },
   {
     label: "Projects",
     route: "/projects",
   },
   {
-    label: "Blogs",
-    route: "/blogs",
+    label: "Events",
+    route: "/events",
   },
   {
     label: "About Us",
@@ -53,19 +53,6 @@ export const Committee = [
 ];
 
 export const eventDefaultValues = {
-  title: "",
-  description: "",
-  location: "",
-  imageUrl: "",
-  startDateTime: new Date(),
-  endDateTime: new Date(),
-  categoryId: "",
-  price: "",
-  isFree: false,
-  url: "",
-};
-
-export const blogDefaultValues = {
   title: "",
   description: "",
   location: "",

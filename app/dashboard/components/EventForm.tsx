@@ -11,9 +11,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { blogFormSchema } from "@/lib/validator";
+import { eventFormSchema } from "@/lib/validator";
 import * as z from "zod";
-import { blogDefaultValues } from "@/constants";
+import { eventDefaultValues } from "@/constants";
 import { Textarea } from "@/components/ui/textarea";
 import { FileUploader } from "../../../components/shared/FileUploader";
 import { useState } from "react";
@@ -21,37 +21,37 @@ import Image from "next/image";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/navigation";
-import { createBlog, updateBlog } from "@/lib/actions/blog.actions";
+import { createEvent, updateEvent } from "@/lib/actions/event.actions";
 import { useUploadThing } from "@/lib/uploadthing";
-import { IBlog } from "@/lib/database/models/blog.model";
+import { IEvent } from "@/lib/database/models/event.model";
 
-type BlogFormProps = {
+type EventFormProps = {
   userId: string;
   type: "Create" | "Update";
-  blog?: IBlog;
-  blogId?: string;
+  event?: IEvent;
+  eventId?: string;
 };
 
-const BlogForm = ({ userId, type, blog, blogId }: BlogFormProps) => {
+const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const router = useRouter();
 
   const initialValues =
-    blog && type === "Update"
+    event && type === "Update"
       ? {
-          ...blog,
-          createdAt: new Date(blog.createdAt),
+          ...event,
+          createdAt: new Date(event.createdAt),
         }
-      : blogDefaultValues;
+      : eventDefaultValues;
 
   const { startUpload } = useUploadThing("imageUploader");
 
-  const form = useForm<z.infer<typeof blogFormSchema>>({
-    resolver: zodResolver(blogFormSchema),
+  const form = useForm<z.infer<typeof eventFormSchema>>({
+    resolver: zodResolver(eventFormSchema),
     defaultValues: initialValues,
   });
 
-  async function onSubmit(values: z.infer<typeof blogFormSchema>) {
+  async function onSubmit(values: z.infer<typeof eventFormSchema>) {
     let uploadedImageUrl = values.imageUrl;
 
     if (files.length > 0) {
@@ -66,30 +66,30 @@ const BlogForm = ({ userId, type, blog, blogId }: BlogFormProps) => {
 
     try {
       if (type === "Create" && userId) {
-        const newBlog = await createBlog({
-          blog: { ...values, imageUrl: uploadedImageUrl },
+        const newEvent = await createEvent({
+          event: { ...values, imageUrl: uploadedImageUrl },
           userId,
-          path: "/blogs",
+          path: "/events",
         });
 
-        if (newBlog) {
+        if (newEvent) {
           form.reset();
-          router.push(`/blogs/${newBlog._id}`);
+          router.push(`/events/${newEvent._id}`);
         }
-      } else if (type === "Update" && userId && blogId) {
-        const updatedBlog = await updateBlog({
+      } else if (type === "Update" && userId && eventId) {
+        const updatedEvent = await updateEvent({
           userId,
-          blog: { ...values, imageUrl: uploadedImageUrl, _id: blogId },
-          path: `/blogs/${blogId}`,
+          event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
+          path: `/events/${eventId}`,
         });
 
-        if (updatedBlog) {
+        if (updatedEvent) {
           form.reset();
-          router.push(`/blogs/${updatedBlog._id}`);
+          router.push(`/events/${updatedEvent._id}`);
         }
       }
     } catch (error) {
-      console.error("Blog submission failed", error);
+      console.error("Event submission failed", error);
     }
   }
 
@@ -107,7 +107,7 @@ const BlogForm = ({ userId, type, blog, blogId }: BlogFormProps) => {
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Blog title"
+                    placeholder="Event title"
                     {...field}
                     className="input-field"
                   />
@@ -168,7 +168,7 @@ const BlogForm = ({ userId, type, blog, blogId }: BlogFormProps) => {
                       height={24}
                     />
                     <Input
-                      placeholder="Blog location or Online"
+                      placeholder="Event location or Online"
                       {...field}
                       className="input-field"
                     />
@@ -239,11 +239,11 @@ const BlogForm = ({ userId, type, blog, blogId }: BlogFormProps) => {
           disabled={form.formState.isSubmitting}
           className="button col-span-2 w-full"
         >
-          {form.formState.isSubmitting ? "Submitting..." : `${type} Blog`}
+          {form.formState.isSubmitting ? "Submitting..." : `${type} Event`}
         </Button>
       </form>
     </Form>
   );
 };
 
-export default BlogForm;
+export default EventForm;
