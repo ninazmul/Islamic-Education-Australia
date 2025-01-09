@@ -8,6 +8,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import Link from "next/link";
+import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
 
 export const ContactUs = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -57,7 +59,7 @@ export const ContactUs = () => {
           </p>
         )}
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1">
+          <div className="flex-1 space-y-8">
             <ul className="text-sm space-y-4 font-medium">
               <li className="flex items-center gap-2">
                 <Phone className="text-primary-500" /> +61452061535
@@ -69,6 +71,23 @@ export const ContactUs = () => {
                 <Map className="text-primary-500" /> Sydney, Australia
               </li>
             </ul>
+            <div>
+              <h3 className="font-semibold">Follow us in:</h3>
+              <div className="flex items-center gap-4 py-4">
+                <Link href={"/"} target="_blank">
+                  <ImFacebook className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+                </Link>
+                <Link href={"/"} target="_blank">
+                  <ImInstagram className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+                </Link>
+                <Link href={"/"} target="_blank">
+                  <ImTwitter className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+                </Link>
+                <Link href={"/"} target="_blank">
+                  <ImLinkedin className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="flex-1">
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
