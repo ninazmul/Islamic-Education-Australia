@@ -12,7 +12,7 @@ const OurVision = () => {
             Our <span className="text-primary-500">Vision</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-            At Muslim College Sydney, our vision is to inspire and nurture
+            At Islamic Education Australia, our vision is to inspire and nurture
             future leaders by providing an educational experience that blends
             academic excellence with Islamic values. We aim to empower students
             to embrace their Australian-Muslim identity with confidence,

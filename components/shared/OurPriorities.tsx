@@ -14,9 +14,9 @@ const OurPriorities = () => {
             Our <span className="text-primary-500">Priorities</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-            At Muslim College Sydney, our priorities reflect the foundational
-            pillars of Islamic life and moral excellence. These principles guide
-            our approach to education and character-building:
+            At Islamic Education Australia, our priorities reflect the
+            foundational pillars of Islamic life and moral excellence. These
+            principles guide our approach to education and character-building:
           </p>
           <ul className="mb-10 md:mb-14">
             <li className="mb-3 py-3">

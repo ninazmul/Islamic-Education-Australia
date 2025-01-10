@@ -24,11 +24,11 @@ const Footer = () => {
           {/* About Section */}
           <div>
             <h4 className="font-semibold text-lg mb-4 ">
-              About Muslim College Sydney
+              About Islamic Education Australia
             </h4>
             <p className="text-gray-200">
-              Muslim College Sydney fosters academic excellence and Islamic
-              values, shaping confident Australian Muslims.
+              Islamic Education Australia fosters academic excellence and
+              Islamic values, shaping confident Australian Muslims.
             </p>
           </div>
 

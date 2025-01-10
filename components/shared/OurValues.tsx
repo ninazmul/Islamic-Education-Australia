@@ -25,8 +25,8 @@ const OurValues = () => {
             Our <span className="text-primary-500">Values</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-            At Muslim College Sydney, we uphold three core values that guide our
-            mission and shape our community:
+            At Islamic Education Australia, we uphold three core values that
+            guide our mission and shape our community:
           </p>
           <ul className="mb-10 md:mb-14">
             <li className="mb-3 py-3">

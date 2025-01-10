@@ -23,12 +23,12 @@ const OurMission = () => {
             Our <span className="text-primary-500">Mission</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-            At Muslim College Sydney, our mission is to create an environment
-            where children thrive academically, spiritually, and morally. We are
-            dedicated to helping students achieve their highest potential
-            through a balanced education, rooted in Islamic morals, scholastic
-            excellence, and responsible citizenship. Our aim is to prepare
-            students to succeed in life while upholding strong Islamic
+            At Islamic Education Australia, our mission is to create an
+            environment where children thrive academically, spiritually, and
+            morally. We are dedicated to helping students achieve their highest
+            potential through a balanced education, rooted in Islamic morals,
+            scholastic excellence, and responsible citizenship. Our aim is to
+            prepare students to succeed in life while upholding strong Islamic
             principles.
           </p>
         </div>

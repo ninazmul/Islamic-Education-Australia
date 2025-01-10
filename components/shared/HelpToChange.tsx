@@ -13,12 +13,12 @@ const HelpToChange = () => {
             <span className="text-primary-500">Life Forever</span>
           </h1>
           <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-            By supporting Muslim College Sydney, you’re investing in the future
-            of our children and the broader Australian-Muslim community. Your
-            contribution will help us provide quality education, build a mosque,
-            and create a community center that fosters growth, leadership, and
-            faith. Together, we can shape the leaders of tomorrow and strengthen
-            our community.
+            By supporting Islamic Education Australia, you’re investing in the
+            future of our children and the broader Australian-Muslim community.
+            Your contribution will help us provide quality education, build a
+            mosque, and create a community center that fosters growth,
+            leadership, and faith. Together, we can shape the leaders of
+            tomorrow and strengthen our community.
           </p>
         </div>
         <div className="flex justify-center w-full lg:w-1/2 relative">
