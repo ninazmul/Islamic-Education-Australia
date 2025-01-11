@@ -1,3 +1,5 @@
+import ContactConclusion from "@/components/shared/ContactConclusion";
+import ContactInformation from "@/components/shared/ContactInformation";
 import { ContactUs } from "@/components/shared/ContactUs";
 
 export default async function ContactPage() {
@@ -18,7 +20,15 @@ export default async function ContactPage() {
           step of the way. We encourage you to connect with us through various
           channels:
         </p>
+      </section>
+      <section className="bg-gray-50">
+        <ContactInformation />
+      </section>
+      <section className="bg-gray-50 p-10 lg:p-20 space-y-8">
         <ContactUs />
+      </section>
+      <section className="bg-gray-50">
+        <ContactConclusion />
       </section>
     </>
   );
