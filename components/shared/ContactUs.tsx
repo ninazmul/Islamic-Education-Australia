@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { Mail, Map, Phone } from "lucide-react";
+import React, { useState } from "react";
 import { Card } from "../ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -12,36 +10,49 @@ import Link from "next/link";
 import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
 
 export const ContactUs = () => {
-  const form = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    phone: "",
+    message: "",
+  });
   const [status, setStatus] = useState<string | null>(null);
 
-  const sendEmail = (e: React.FormEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "service_yl3jdp5",
-          "template_dtjjw5k",
-          form.current,
-          "8faiPEZz6ky22cD0B"
-        )
-        .then(
-          () => {
-            setStatus("SUCCESS");
-          },
-          (error) => {
-            console.error("FAILED...", error.text);
-            setStatus("FAILED");
-          }
-        );
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        setFormData({ user_name: "", user_email: "", phone: "", message: "" });
+      } else {
+        setStatus("FAILED");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setStatus("FAILED");
     }
   };
 
   return (
     <div className="flex items-center justify-center">
       <Card className="bg-white shadow-lg rounded-lg p-6 md:p-10 w-full max-w-3xl">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Contact Us</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Contact Form</h2>
         {!status && (
           <p className="text-gray-600 text-sm mb-6">
             Please feel free to contact us to share your ideas, suggestions, or
@@ -59,38 +70,25 @@ export const ContactUs = () => {
           </p>
         )}
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1 space-y-8">
-            <ul className="text-sm space-y-4 font-medium">
-              <li className="flex items-center gap-2">
-                <Phone className="text-primary-500" /> +61452061535
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="text-primary-500" /> onesoulmuslim@gmail.com
-              </li>
-              <li className="flex items-center gap-2">
-                <Map className="text-primary-500" /> Sydney, Australia
-              </li>
-            </ul>
-            <div>
-              <h3 className="font-semibold">Follow us in:</h3>
-              <div className="flex items-center gap-4 py-4">
-                <Link href={"/"} target="_blank">
-                  <ImFacebook className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-                <Link href={"/"} target="_blank">
-                  <ImInstagram className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-                <Link href={"/"} target="_blank">
-                  <ImTwitter className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-                <Link href={"/"} target="_blank">
-                  <ImLinkedin className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-              </div>
+          <div>
+            <h3 className="font-semibold">Follow us on:</h3>
+            <div className="flex items-center gap-4 py-4">
+              <Link href={"/"} target="_blank">
+                <ImFacebook className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+              </Link>
+              <Link href={"/"} target="_blank">
+                <ImInstagram className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+              </Link>
+              <Link href={"/"} target="_blank">
+                <ImTwitter className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+              </Link>
+              <Link href={"/"} target="_blank">
+                <ImLinkedin className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
+              </Link>
             </div>
           </div>
           <div className="flex-1">
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label
                   htmlFor="user_name"
@@ -103,6 +101,8 @@ export const ContactUs = () => {
                   id="user_name"
                   name="user_name"
                   placeholder="Your name"
+                  value={formData.user_name}
+                  onChange={handleChange}
                   required
                   className="mt-1"
                 />
@@ -119,6 +119,23 @@ export const ContactUs = () => {
                   id="user_email"
                   name="user_email"
                   placeholder="Your email"
+                  value={formData.user_email}
+                  onChange={handleChange}
+                  required
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <Label htmlFor="phone" className="block text-sm font-medium">
+                  Phone
+                </Label>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
                   required
                   className="mt-1"
                 />
@@ -132,6 +149,8 @@ export const ContactUs = () => {
                   name="message"
                   rows={4}
                   placeholder="Your message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                   className="mt-1"
                 />
