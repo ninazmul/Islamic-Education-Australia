@@ -1,13 +1,3 @@
-import RegistrationFrom from "@/app/dashboard/components/RegistrationForm";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import {
   getRegistrationsByUserId,
   isRegistered,
@@ -15,11 +5,12 @@ import {
 } from "@/lib/actions/registration.actions";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs/server";
-import { Clock, Edit, Eye, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Clock, ExternalLink, Eye } from "lucide-react";
+import RegistrationForm from "@/app/dashboard/components/RegistrationForm";
 import Link from "next/link";
-import React from "react";
 
-const ProfilePage = async ( ) => {
+export default async function ProfilePage() {
   const { sessionClaims } = await auth();
   const userId = sessionClaims?.userId as string;
   const user = await getUserById(userId);
@@ -29,126 +20,107 @@ const ProfilePage = async ( ) => {
   const isSubmittedUser = await isSubmitted(userId);
   const isRegisteredUser = await isRegistered(userId);
 
+  if (!userId || !user) {
+    return "/sign-in";
+  }
 
   return (
-    <>
-      <section>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 wrapper my-8">
-          <div>
-            <div className="flex items-center gap-4">
-              <h1 className="h2-bold">
-                Welcome, {user.firstName} {user.lastName}
-              </h1>
-            </div>
-            <p
-              className={`p-regular-${
-                isRegisteredUser || isSubmittedUser ? "24" : "20"
-              } md:p-regular-24`}
+    <main className="bg-gray-50 min-h-screen py-12">
+      <section className="max-w-6xl mx-auto px-4">
+        {/* Welcome Section */}
+        <div className="bg-white shadow rounded-lg p-6 mb-8">
+          <h1 className="text-2xl font-bold text-gray-800">
+            Welcome, {user.firstName} {user.lastName}
+          </h1>
+          <p className="mt-2 text-gray-600">
+            {isRegisteredUser
+              ? "Thank you for being a part of our volunteer community. We appreciate your dedication!"
+              : isSubmittedUser
+              ? "Your registration is pending approval. We will notify you once it is approved."
+              : "Please connect with us and let’s bring your vision to life!"}
+          </p>
+          <br />
+          <div className="text-gray-700">
+            Interested in joining us as a member? {""}
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1 text-blue-900 hover:underline"
             >
-              {isRegisteredUser
-                ? "Thank you for being a Volunteer!"
-                : isSubmittedUser
-                ? "Your Registration is Pending for Approval."
-                : "Want to become our Volunteer?"}
-            </p>
-          </div>
-          <div className="">
-            <Sheet>
-              <SheetTrigger className="w-full">
-                {isSubmittedUser && !isRegisteredUser ? (
-                  <>
-                    <Button
-                      size="lg"
-                      className="button w-full lg:w-max bg-yellow-500"
-                    >
-                      <Clock /> Registration Submitted
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    {!isSubmittedUser && !isRegisteredUser && (
-                      <Button size="lg" className="button w-full lg:w-max">
-                        <Plus /> Registration As Volunteer
-                      </Button>
-                    )}
-                  </>
-                )}
-              </SheetTrigger>
-
-              <SheetContent className="bg-white">
-                <SheetHeader>
-                  <SheetTitle>Join Our Volunteer Team</SheetTitle>
-                  <SheetDescription>
-                    Complete this form to register as a volunteer. Please ensure
-                    that all details are accurate and complete, following the
-                    system&apos;s requirements for proper record management and
-                    organization.
-                  </SheetDescription>
-                </SheetHeader>
-                {isSubmittedUser && !isRegisteredUser ? (
-                  <div className="text-center py-6 bg-gray-100 rounded-lg shadow-md">
-                    <h2 className="text-xl font-semibold text-gray-800">
-                      Registration Submitted!
-                    </h2>
-                    <p className="mt-2 text-gray-600">
-                      Your registration has been successfully submitted and is
-                      currently pending approval.
-                    </p>
-                  </div>
-                ) : (
-                  <div className="py-5">
-                    <RegistrationFrom userId={userId} type="Create" />
-                  </div>
-                )}
-              </SheetContent>
-            </Sheet>
-            <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-2">
-              {isRegisteredUser && (
-                <Link href={`/profile/${registration._id}`} className="w-full">
-                  <Button
-                    variant={"outline"}
-                    size="lg"
-                    className="button w-full text-primary-900 lg:w-max"
-                  >
-                    <Eye /> View details
-                  </Button>
-                </Link>
-              )}
-              <Sheet>
-                <SheetTrigger className="w-full">
-                  {isRegisteredUser && (
-                    <Button size="lg" className="button w-full lg:w-max">
-                      <Edit /> Update Volunteer Details
-                    </Button>
-                  )}
-                </SheetTrigger>
-
-                <SheetContent className="bg-white">
-                  <SheetHeader>
-                    <SheetTitle>Update Your Volunteer Details</SheetTitle>
-                    <SheetDescription>
-                      Update your information to ensure our records are accurate
-                      and up to date. Please review and modify your details as
-                      needed, adhering to the system&apos;s requirements for
-                      proper record management and organization.
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="py-5">
-                    <RegistrationFrom
-                      userId={userId}
-                      registration={registration}
-                      registrationId={registration?._id}
-                      type="Update"
-                    />
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
+              Get in touch <ExternalLink className="w-4 h-4" />
+            </Link>
           </div>
         </div>
-      </section>
-    </>
-  );
-};
 
-export default ProfilePage;
+        {/* Action Section */}
+        <div className="grid grid-cols-1 gap-6">
+          {/* Registration or Pending Status */}
+          {!isRegisteredUser && (
+            <div className="bg-white shadow rounded-lg p-6">
+              {isSubmittedUser ? (
+                <div className="flex items-center space-x-3">
+                  <Clock className="text-yellow-500 w-6 h-6" />
+                  <p className="text-yellow-600 font-medium">
+                    Registration Submitted
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Become a Volunteer
+                  </h2>
+                  <p className="mt-2 text-gray-600">
+                    Complete the form below to join our volunteer team.
+                  </p>
+                  <div className="mt-4">
+                    <RegistrationForm userId={userId} type="Create" />
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Registered Actions */}
+          {isRegisteredUser && (
+            <>
+              {/* View Details */}
+              <div className="bg-white shadow rounded-lg p-6">
+                <h2 className="text-lg font-semibold text-gray-800">
+                  View Your Details
+                </h2>
+                <p className="mt-2 text-gray-600">
+                  Check your current volunteer registration details.
+                </p>
+                <div className="mt-4">
+                  <Link href={`/profile/${registration._id}`} className="block">
+                    <Button variant="outline" size="lg" className="w-full">
+                      <Eye className="mr-2" /> View Details
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Update Details */}
+              <div className="bg-white shadow rounded-lg p-6">
+                <h2 className="text-lg font-semibold text-gray-800">
+                  Update Your Information
+                </h2>
+                <p className="mt-2 text-gray-600">
+                  Keep your details up-to-date to ensure accuracy in our
+                  records.
+                </p>
+                <div className="mt-4">
+                  <RegistrationForm
+                    userId={userId}
+                    registration={registration}
+                    registrationId={registration?._id}
+                    type="Update"
+                  />
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    </main>
+  );
+}
