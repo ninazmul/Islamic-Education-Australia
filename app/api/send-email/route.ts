@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import nodemailer from "nodemailer";
 
 export async function POST(req: any) {
@@ -5,12 +6,12 @@ export async function POST(req: any) {
     const { user_name, user_email, phone, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com", // Gmail SMTP server
-      port: 465, // Secure SMTP port
-      secure: true, // Use TLS
+      host: "smtp.gmail.com", 
+      port: 465, 
+      secure: true, 
       auth: {
-        user: process.env.EMAIL_USER, // Your Gmail address
-        pass: process.env.EMAIL_PASS, // Your Gmail app password
+        user: process.env.EMAIL_USER, 
+        pass: process.env.EMAIL_PASS, 
       },
     });
 
