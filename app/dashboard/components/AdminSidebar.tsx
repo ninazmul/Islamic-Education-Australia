@@ -13,13 +13,8 @@ import {
 import {
   LayoutDashboard,
   Users,
-  Calendar,
-  Grid,
   Shield,
-  Images,
-  ListOrderedIcon,
   ImageIcon,
-  FilesIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,39 +27,14 @@ const sidebarItems = [
     icon: LayoutDashboard,
   },
   {
-    title: "Volunteers",
-    url: "/dashboard/volunteers",
+    title: "Participants",
+    url: "/dashboard/participants",
     icon: Users,
-  },
-  {
-    title: "Events",
-    url: "/dashboard/events",
-    icon: Calendar,
-  },
-  {
-    title: "Orders",
-    url: "/dashboard/orders",
-    icon: ListOrderedIcon,
-  },
-  {
-    title: "Categories",
-    url: "/dashboard/categories",
-    icon: Grid,
   },
   {
     title: "Banners",
     url: "/dashboard/banners",
     icon: ImageIcon,
-  },
-  {
-    title: "Gallery",
-    url: "/dashboard/gallery",
-    icon: Images,
-  },
-  {
-    title: "Resources",
-    url: "/dashboard/resources",
-    icon: FilesIcon,
   },
   {
     title: "Admins",
