@@ -28,7 +28,7 @@ export const headerLinks = [
     route: "/partners",
   },
   {
-    label: "My Profile",
+    label: "Join Us",
     route: "/profile",
   },
 ];
