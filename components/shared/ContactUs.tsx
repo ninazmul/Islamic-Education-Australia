@@ -18,6 +18,7 @@ export const ContactUs = () => {
     message: "",
   });
   const [status, setStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,6 +29,7 @@ export const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Start loading
 
     try {
       const response = await fetch("/api/send-email", {
@@ -44,10 +46,14 @@ export const ContactUs = () => {
         setFormData({ user_name: "", user_email: "", phone: "", message: "" });
       } else {
         setStatus("FAILED");
+        toast.error("Failed to send the message.");
       }
     } catch (error) {
       console.error("Error sending email:", error);
       setStatus("FAILED");
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -159,9 +165,12 @@ export const ContactUs = () => {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-primary-500 text-white font-medium py-2"
+                disabled={loading} // Disable button when loading
+                className={`w-full font-medium py-2 ${
+                  loading ? "bg-gray-400" : "bg-primary-500 text-white"
+                }`}
               >
-                Send
+                {loading ? "Sending..." : "Send"} {/* Show loading text */}
               </Button>
             </form>
           </div>
