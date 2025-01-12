@@ -76,7 +76,9 @@ const Hero: React.FC<HeroProps> = ({ banners }) => {
                     alt="Islamic Education Australia Ltd logo"
                     className="animate-float w-full lg:rounded-t-md"
                   />
-                  <i className="font-serif font-semibold text-blue-900 line-clamp-2 px-2 py-1 lg:px-4 lg:py-3">{banner.title}</i>
+                  <i className="font-serif font-semibold text-blue-900 line-clamp-2 px-2 py-1 lg:px-4 lg:py-3">
+                    "{banner.title}"
+                  </i>
                 </div>
               </div>
             ))}
