@@ -137,7 +137,7 @@ const OurTeam = () => {
                 src={member.image}
                 width={500}
                 height={500}
-                alt="Islamic Education Australia Ltd logo"
+                alt="Islamic Education Australia logo"
                 className="w-full md:w-2/3 z-10"
               />
               <div className="absolute -right-[7%] md:right-[11.5%] lg:right-[12%] -top-[8%] md:-top-[10%] lg:-top-[9%] rounded-none p-10 bg-yellow-400 " />

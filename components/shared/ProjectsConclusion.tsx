@@ -4,7 +4,7 @@ const ProjectsConclusion = () => {
   return (
     <div>
       <div className="w-full space-y-4 px-10 lg:px-20 pt-10 lg:pt-20 pb-4 lg:pb-10">
-        <h1 className="h2-bold">Conclusion</h1>
+        <h1 className="h2-bold">Overall Projects Mission</h1>
         <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
           By focusing on building schools, masjids, and other learning
           organizations, Islamic Education Australia will provide the

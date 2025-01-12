@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Islamic Education Australia Ltd",
+  title: "Islamic Education Australia",
   description: "Developed by ArtistyCode Studio",
   icons: {
     icon: "/assets/images/logo.png",

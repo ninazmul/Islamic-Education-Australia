@@ -10,12 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import {
-  LayoutDashboard,
-  Users,
-  Shield,
-  ImageIcon,
-} from "lucide-react";
+import { LayoutDashboard, Users, Shield, ImageIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -59,7 +54,7 @@ const AdminSidebar = () => {
                 src="/assets/images/logo.png"
                 width={20}
                 height={20}
-                alt="Islamic Education Australia Ltd logo"
+                alt="Islamic Education Australia logo"
               />{" "}
               <h1 className="text-xl font-serif font-bold text-primary-900">
                 IEA Ltd

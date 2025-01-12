@@ -32,7 +32,7 @@ const MobileNav = () => {
               height={30}
             />
             <h1 className="text-2xl md:text-3xl font-serif font-bold">
-              Islamic Education Australia Ltd
+              Islamic Education Australia
             </h1>
           </Link>
           <Separator className="border border-green-300" />

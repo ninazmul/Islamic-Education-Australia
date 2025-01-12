@@ -17,42 +17,42 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ banners }) => {
   const [isPaused, setIsPaused] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  
-    const [sliderRef, sliderInstanceRef] = useKeenSlider({
-      loop: true,
-      mode: "free-snap",
-      slides: { perView: 1},
-      created() {
-        startAutoplay();
-      },
-      destroyed() {
-        stopAutoplay();
-      },
-    });
-  
-    const startAutoplay = () => {
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const [sliderRef, sliderInstanceRef] = useKeenSlider({
+    loop: true,
+    mode: "free-snap",
+    slides: { perView: 1 },
+    created() {
+      startAutoplay();
+    },
+    destroyed() {
       stopAutoplay();
-      timerRef.current = setInterval(() => {
-        if (!isPaused && sliderInstanceRef.current) {
-          sliderInstanceRef.current.next();
-        }
-      }, 3000);
-    };
-  
-    const stopAutoplay = () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
+    },
+  });
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    timerRef.current = setInterval(() => {
+      if (!isPaused && sliderInstanceRef.current) {
+        sliderInstanceRef.current.next();
       }
-    };
-  
-    const handleMouseEnter = () => {
-      setIsPaused(true);
-    };
-  
-    const handleMouseLeave = () => {
-      setIsPaused(false);
-    };
+    }, 3000);
+  };
+
+  const stopAutoplay = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
   return (
     <div className="relative bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center h-[1070px] md:h-[1030px] lg:h-[680px] overflow-hidden">
       <div className="absolute flex flex-col lg:flex-row items-center justify-around p-4 md:p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ banners }) => {
                     src={banner.image}
                     width={500}
                     height={500}
-                    alt="Islamic Education Australia Ltd logo"
+                    alt="Islamic Education Australia logo"
                     className="animate-float w-full lg:rounded-t-md"
                   />
                   <i className="font-serif font-semibold text-blue-900 line-clamp-2 px-2 py-1 lg:px-4 lg:py-3">

@@ -25,12 +25,15 @@ export default async function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/assets/images/logo.png"
-            width={50}
-            height={50}
-            alt="Islamic Education Australia Ltd logo"
+            width={100}
+            height={100}
+            alt="Islamic Education Australia logo"
           />
           <h1 className="hidden md:flex text-lg md:text-2xl lg:text-4xl font-serif font-bold">
-            Islamic Education Australia Ltd
+            Islamic Education Australia
+          </h1>
+          <h1 className="md:hidden text-lg md:text-2xl lg:text-4xl font-serif font-bold">
+            Islamic <br /> Education <br /> Australia
           </h1>
         </Link>
 

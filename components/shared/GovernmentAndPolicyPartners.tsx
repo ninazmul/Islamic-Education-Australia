@@ -65,7 +65,7 @@ const GovernmentAndPolicyPartners = () => {
             src="/assets/images/Service/knowledge.png"
             width={500}
             height={500}
-            alt="Islamic Education Australia Ltd logo"
+            alt="Islamic Education Australia logo"
             className="w-full md:w-2/3 z-10"
           />
           <div className="absolute -right-[7%] md:right-[11.5%] lg:right-[8%] -top-[12%] md:-top-[13%] lg:-top-[20%] rounded-none p-20 bg-yellow-400 " />

@@ -95,7 +95,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-4">
           <p className="text-sm text-gray-300">
-            &copy; 2025 Islamic Education Australia Ltd. All rights reserved.{" "}
+            &copy; 2025 Islamic Education Australia. All rights reserved.{" "}
             <Link href="/" className="text-green-200 hover:underline">
               Learn More
             </Link>

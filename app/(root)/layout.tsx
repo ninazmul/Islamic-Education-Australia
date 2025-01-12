@@ -14,7 +14,7 @@ export default function RootLayout({
       <ScrollHeaderWrapper>
         <Header />
       </ScrollHeaderWrapper>
-      <main className="flex-1 pt-36">{children}</main>
+      <main className="flex-1 pt-44">{children}</main>
       <Footer />
     </div>
   );

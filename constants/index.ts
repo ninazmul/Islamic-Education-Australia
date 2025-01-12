@@ -4,6 +4,10 @@ export const headerLinks = [
     route: "/",
   },
   {
+    label: "About Us",
+    route: "/about",
+  },
+  {
     label: "Programs",
     route: "/programs",
   },
@@ -14,10 +18,6 @@ export const headerLinks = [
   {
     label: "Events",
     route: "/events",
-  },
-  {
-    label: "About Us",
-    route: "/about",
   },
   {
     label: "Contact Us",
