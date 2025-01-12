@@ -47,6 +47,7 @@
     "react-excel-export": "^1.0.6",
     "react-grid-gallery": "^1.0.1",
     "react-hook-form": "^7.54.1",
+    "react-hot-toast": "^2.5.1",
     "react-icons": "^5.4.0",
     "react-image-lightbox": "^5.1.4",
     "react-json-to-excel": "^1.0.8",

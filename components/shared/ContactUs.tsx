@@ -8,6 +8,7 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
+import toast from "react-hot-toast";
 
 export const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -39,6 +40,7 @@ export const ContactUs = () => {
 
       if (response.ok) {
         setStatus("SUCCESS");
+        toast.success("Message sent successfully!");
         setFormData({ user_name: "", user_email: "", phone: "", message: "" });
       } else {
         setStatus("FAILED");
