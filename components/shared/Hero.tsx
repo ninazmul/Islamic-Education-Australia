@@ -77,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ banners }) => {
                     className="animate-float w-full lg:rounded-t-md"
                   />
                   <i className="font-serif font-semibold text-blue-900 line-clamp-2 px-2 py-1 lg:px-4 lg:py-3">
-                    "{banner.title}"
+                    &quot;{banner.title}&quot;
                   </i>
                 </div>
               </div>
