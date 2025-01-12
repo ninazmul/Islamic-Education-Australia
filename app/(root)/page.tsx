@@ -6,14 +6,15 @@ import OurPriorities from "@/components/shared/OurPriorities";
 import OurValues from "@/components/shared/OurValues";
 import OurVision from "@/components/shared/OurVision";
 import ShortAbout from "@/components/shared/ShortAbout";
+import { getAllBanner } from "@/lib/actions/banner.actions";
 
 export default async function Home() {
-
+  const banners = await getAllBanner();
 
   return (
     <>
       <section className="">
-        <Hero />
+        <Hero banners={banners} />
       </section>
       <section className="bg-gray-50">
         <ShortAbout />

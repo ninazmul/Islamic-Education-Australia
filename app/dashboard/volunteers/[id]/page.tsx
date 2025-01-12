@@ -20,7 +20,7 @@ const VolunteerDetails = async ({ params }: PageProps) => {
     <div className="p-4 max-w-5xl mx-auto bg-primary-50 bg-dotted-pattern bg-contain">
       <div className="flex flex-col items-center gap-2 justify-center">
         <h1 className="text-center text-2xl font-semibold">
-          One Soul Muslim Community Inc.
+          Islamic Education Australia Ltd
         </h1>
         <h2 className="text-center text-2xl font-semibold">
           Volunteer Application Form

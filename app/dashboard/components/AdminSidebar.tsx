@@ -59,10 +59,10 @@ const AdminSidebar = () => {
                 src="/assets/images/logo.png"
                 width={20}
                 height={20}
-                alt="One Soul Muslim logo"
+                alt="Islamic Education Australia Ltd logo"
               />{" "}
               <h1 className="text-xl font-serif font-bold text-primary-900">
-                One Soul Muslim
+                IEA Ltd
               </h1>
             </Link>
           </SidebarGroupLabel>
