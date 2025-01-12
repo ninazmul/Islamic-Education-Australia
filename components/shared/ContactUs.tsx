@@ -167,7 +167,9 @@ export const ContactUs = () => {
                 type="submit"
                 disabled={loading} // Disable button when loading
                 className={`w-full font-medium py-2 ${
-                  loading ? "bg-gray-400" : "bg-primary-500 text-white"
+                  loading
+                    ? "bg-primary-500 text-white bg-muted-foreground"
+                    : "bg-primary-500 text-white"
                 }`}
               >
                 {loading ? "Sending..." : "Send"} {/* Show loading text */}
