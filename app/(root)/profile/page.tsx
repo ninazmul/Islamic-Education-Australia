@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Clock, ExternalLink, Eye } from "lucide-react";
 import RegistrationForm from "@/app/dashboard/components/RegistrationForm";
 import Link from "next/link";
+import NoticeBoard from "@/components/shared/NoticeBoard";
+import { getAllNotice } from "@/lib/actions/notice.actions";
 
 export default async function ProfilePage() {
   const { sessionClaims } = await auth();
@@ -19,6 +21,8 @@ export default async function ProfilePage() {
 
   const isSubmittedUser = await isSubmitted(userId);
   const isRegisteredUser = await isRegistered(userId);
+
+  const notices = await getAllNotice();
 
   if (!userId || !user) {
     return "/sign-in";
@@ -50,6 +54,10 @@ export default async function ProfilePage() {
             </Link>
           </div>
         </div>
+
+        <section className="bg-gray-50">
+          <NoticeBoard notices={notices} />
+        </section>
 
         {/* Action Section */}
         <div className="grid grid-cols-1 gap-6">

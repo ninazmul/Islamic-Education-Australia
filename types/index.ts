@@ -105,6 +105,11 @@ export type AddBannerParams = {
   Image: string;
 };
 
+// ====== NOTICE PARAMS
+export type AddNoticeParams = {
+  Notice: string;
+};
+
 // ====== REGISTRATION PARAMS
 export type RegistrationParams = {
   firstName: string;
