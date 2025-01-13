@@ -4,18 +4,21 @@ import React from "react";
 import { Button } from "../ui/button";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import NavItems from "./NavItems";
-import { LogIn, Shield } from "lucide-react";
+import { LogIn, Shield, UserPen, UserPlus } from "lucide-react";
 import MobileNav from "./MobileNav";
 import Donation from "./Donation";
 import { auth } from "@clerk/nextjs/server";
 import { getUserEmailById } from "@/lib/actions/user.actions";
 import { isAdmin } from "@/lib/actions/admin.actions";
+import { isRegistered, isSubmitted } from "@/lib/actions/registration.actions";
 
 export default async function Header() {
   const { sessionClaims } = await auth();
   const userId = sessionClaims?.userId as string;
   const email = await getUserEmailById(userId);
   const adminStatus = await isAdmin(email);
+  const isSubmittedUser = await isSubmitted(userId);
+  const isRegisteredUser = await isRegistered(userId);
 
   return (
     <header className="w-full text-white bg-gradient-to-r from-primary-900 to-primary-500">
@@ -53,6 +56,48 @@ export default async function Header() {
 
         {/* User Actions */}
         <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <SignedIn>
+              {isSubmittedUser || isRegisteredUser ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+                >
+                  <Link href="/profile">
+                    <UserPen className="w-4 h-4" />
+                    My Profile
+                  </Link>
+                </Button>
+              ) : (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+                >
+                  <Link href="/profile">
+                    <UserPlus className="w-4 h-4" />
+                    Join Us
+                  </Link>
+                </Button>
+              )}
+            </SignedIn>
+            <SignedOut>
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+              >
+                <Link href="/profile">
+                  <UserPlus className="w-4 h-4" />
+                  Join Us
+                </Link>
+              </Button>
+            </SignedOut>
+          </div>
           <SignedIn>
             {adminStatus && (
               <Button
