@@ -111,7 +111,7 @@ export const deleteRegistration = async (registrationId: string) => {
 // ====== CHECK REGISTRATION EXISTENCE BY CLERK USER ID
 export const isRegistered = async (clerkUserId: string): Promise<boolean> => {
   if (!clerkUserId) {
-    throw new Error("Clerk user ID is required");
+    return false;
   }
 
   try {
@@ -139,7 +139,7 @@ export const isRegistered = async (clerkUserId: string): Promise<boolean> => {
 // ====== CHECK SUBMIT REGISTRATION EXISTENCE BY CLERK USER ID
 export const isSubmitted = async (clerkUserId: string): Promise<boolean> => {
   if (!clerkUserId) {
-    throw new Error("Clerk user ID is required");
+    return false;
   }
 
   try {
