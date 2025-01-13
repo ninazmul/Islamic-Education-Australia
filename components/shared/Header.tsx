@@ -21,7 +21,7 @@ export default async function Header() {
   const isRegisteredUser = await isRegistered(userId);
 
   return (
-    <header className="w-full text-white bg-gradient-to-r from-primary-900 to-primary-500">
+    <header className="w-full text-white bg-gradient-to-r from-primary-500 to-primary-900">
       {/* Top Section */}
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo and Title */}

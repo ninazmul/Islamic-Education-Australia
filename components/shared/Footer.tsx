@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-12 text-white bg-gradient-to-r from-primary-900 to-primary-500">
+    <footer className="py-12 text-white bg-gradient-to-r from-primary-500 to-primary-900">
       <div className="max-w-5xl mx-auto px-4">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
