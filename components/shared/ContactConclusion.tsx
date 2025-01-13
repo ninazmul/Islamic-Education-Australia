@@ -24,7 +24,7 @@ const ContactConclusion = () => {
               programs and events, please contact us through the Volunteer
               section on our website or send us an email to{" "}
               <a
-                href="mailto:volunteer@islamicedu.com.au"
+                href="mailto:islamic.edu.aus@gmail.com"
                 className="text-blue-800 font-semibold underline ml-1"
                 target="_blank"
               >
@@ -44,7 +44,7 @@ const ContactConclusion = () => {
               Are you an organization looking to partner with us or sponsor one
               of our events or programs? Please reach out to{" "}
               <a
-                href="mailto:partnerships@islamicedu.com.au"
+                href="mailto:islamic.edu.aus@gmail.com"
                 className="text-blue-800 font-semibold underline ml-1"
                 target="_blank"
               >

@@ -22,8 +22,8 @@ const sidebarItems = [
     icon: LayoutDashboard,
   },
   {
-    title: "Participants",
-    url: "/dashboard/participants",
+    title: "Volunteers",
+    url: "/dashboard/volunteers",
     icon: Users,
   },
   {

@@ -17,7 +17,7 @@ export async function POST(req: any) {
 
     await transporter.sendMail({
       from: `"${user_name}" <${process.env.EMAIL_USER}>`,
-      to: "nazmulsaw@gmail.com",
+      to: "islamic.edu.aus@gmail.com",
       subject: `New Contact Form Submission from ${user_name}`,
       html: `
   <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">

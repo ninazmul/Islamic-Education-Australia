@@ -50,7 +50,7 @@ const ContactInformation = () => {
                 <li className="text-sm md:text-md text-muted-foreground flex items-center gap-1 font-semibold">
                   <Dot /> General Inquiries:{" "}
                   <a
-                    href="mailto:info@islamicedu.com.au"
+                    href="mailto:islamic.edu.aus@gmail.com"
                     className="text-blue-800 font-semibold underline"
                     target="_blank"
                   >
@@ -60,7 +60,7 @@ const ContactInformation = () => {
                 <li className="text-sm md:text-md text-muted-foreground flex items-center gap-1 font-semibold">
                   <Dot /> Events and Programs:{" "}
                   <a
-                    href="mailto:events@islamicedu.com.au"
+                    href="mailto:islamic.edu.aus@gmail.com"
                     className="text-blue-800 font-semibold underline"
                     target="_blank"
                   >
@@ -70,7 +70,7 @@ const ContactInformation = () => {
                 <li className="text-sm md:text-md text-muted-foreground flex items-center gap-1 font-semibold">
                   <Dot /> Support and Donations:{" "}
                   <a
-                    href="mailto:support@islamicedu.com.au"
+                    href="mailto:islamic.edu.aus@gmail.com"
                     className="text-blue-800 font-semibold underline"
                     target="_blank"
                   >
@@ -80,7 +80,7 @@ const ContactInformation = () => {
                 <li className="text-sm md:text-md text-muted-foreground flex items-center gap-1 font-semibold">
                   <Dot /> Partnerships and Collaborations:{" "}
                   <a
-                    href="mailto:partnerships@islamicedu.com.au"
+                    href="mailto:islamic.edu.aus@gmail.com"
                     className="text-blue-800 font-semibold underline"
                     target="_blank"
                   >
@@ -92,7 +92,10 @@ const ContactInformation = () => {
             <li className="mb-3 py-3">
               <div className="flex items-center">
                 <FaLocationDot className="text-primary-500 size-8" />
-                <h3 className="body-2 ml-5 font-semibold">Address:</h3>
+                <h3 className="body-2 ml-5 font-semibold">
+                  Address: Level 1, Unit 6, 27 Hunter Street, Parramatta, NSW
+                  2150
+                </h3>
               </div>
               <p className="body-2 mt-3 text-n-4 text-muted-foreground">
                 We welcome you to visit our office or learning Centres. Please
