@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { getAllRegistrations } from "@/lib/actions/registration.actions";
 import { useEffect, useState } from "react";
-import { Clipboard, MessageSquare } from "lucide-react";
+import { Clipboard, ImagesIcon, MessageSquare } from "lucide-react";
 import { Pie, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -17,6 +17,7 @@ import {
   LinearScale,
 } from "chart.js";
 import { getAllNotice } from "@/lib/actions/notice.actions";
+import { getAllBanner } from "@/lib/actions/banner.actions";
 
 // Register Chart.js components
 ChartJS.register(
@@ -32,19 +33,23 @@ ChartJS.register(
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
   const [notices, setNotices] = useState([]);
+  const [banners, setBanners] = useState([]);
   const [registrations, setRegistrations] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [eventsData,noticesData, registrationsData] = await Promise.all([
-          getAllEvents({ query: "", page: 1, limit: 10 }),
-          getAllRegistrations(),
-          getAllNotice()
-        ]);
+        const [eventsData, noticesData, bannersData, registrationsData] =
+          await Promise.all([
+            getAllEvents({ query: "", page: 1, limit: 10 }),
+            getAllRegistrations(),
+            getAllNotice(),
+            getAllBanner(),
+          ]);
 
         setEvents(eventsData?.data || []);
-        setNotices(noticesData)
+        setNotices(noticesData);
+        setBanners(bannersData);
         setRegistrations(registrationsData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -54,9 +59,9 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  const labels = ["Registrations", "Events", "Notices"];
+  const labels = ["Registrations", "Events", "Notices", "Banners"];
 
-  const datasetValues = [registrations.length, events.length, notices.length];
+  const datasetValues = [registrations.length, events.length, notices.length, banners.length];
 
   const pieData = {
     labels,
@@ -132,6 +137,11 @@ const Dashboard = () => {
           icon={<MessageSquare className="text-3xl text-green-500" />}
           title="Notices"
           value={`${notices.length}`}
+        />
+        <DashboardCard
+          icon={<ImagesIcon className="text-3xl text-rose-500" />}
+          title="Banners"
+          value={`${banners.length}`}
         />
       </div>
       <div className="mt-8">
