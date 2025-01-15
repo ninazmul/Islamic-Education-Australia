@@ -60,7 +60,7 @@ const NoticeBoard: React.FC<NoticeBoardProps> = ({ notices }) => {
         ref={sliderRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="keen-slider relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-50 via-white to-blue-50 shadow-lg"
+        className="keen-slider relative overflow-hidden"
       >
         {notices.map((notice, index) => (
           <div
