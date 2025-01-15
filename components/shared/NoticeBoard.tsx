@@ -53,9 +53,6 @@ const NoticeBoard: React.FC<NoticeBoardProps> = ({ notices }) => {
 
   return (
     <div className="flex flex-col items-center gap-3 md:gap-6 p-8 md:p-10 lg:p-20 max-w-5xl mx-auto">
-      <h1 className="h2-bold text-center">
-        Volunteers <span className="text-primary-500">Notice Board</span>
-      </h1>
       <div
         ref={sliderRef}
         onMouseEnter={handleMouseEnter}
@@ -68,6 +65,10 @@ const NoticeBoard: React.FC<NoticeBoardProps> = ({ notices }) => {
             className="keen-slider__slide p-6 flex justify-center items-center text-center"
           >
             <div className="bg-[#f6eedd] bg-dotted-pattern bg-cover bg-center shadow-md rounded-lg p-4 lg:p-6 border border-blue-200 max-w-xl">
+              <h1 className="h2-bold text-center">
+                Volunteers{" "}
+                <span className="text-primary-500">Notice Board</span>
+              </h1>
               <p className="text-lg lg:text-xl font-serif text-gray-800 leading-relaxed line-clamp-3">
                 &quot;
                 {notice.notice
@@ -75,13 +76,13 @@ const NoticeBoard: React.FC<NoticeBoardProps> = ({ notices }) => {
                   : "Welcome to the Volunteers Notice Board. All important announcements, updates, and notices for our organization’s volunteers will be shared here. Please check this space regularly to stay informed."}
                 &quot;
               </p>
+              <h3 className="p-medium-12 md:p-medium-16 text-primary-500 text-center">
+                Hover over the notice to pause the carousel.
+              </h3>
             </div>
           </div>
         ))}
       </div>
-      <h3 className="p-medium-12 md:p-medium-16 text-primary-500 text-center">
-        Hover over the notice to pause the carousel.
-      </h3>
     </div>
   );
 };
