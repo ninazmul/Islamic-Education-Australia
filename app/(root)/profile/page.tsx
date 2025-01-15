@@ -55,9 +55,11 @@ export default async function ProfilePage() {
           </div>
         </div>
 
-        <section className="bg-gray-50">
-          <NoticeBoard notices={notices} />
-        </section>
+        {isRegisteredUser && (
+          <section className="bg-gray-50">
+            <NoticeBoard notices={notices} />
+          </section>
+        )}
 
         {/* Action Section */}
         <div className="grid grid-cols-1 gap-6">

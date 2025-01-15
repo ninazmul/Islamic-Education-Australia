@@ -16,6 +16,7 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
+import { getAllNotice } from "@/lib/actions/notice.actions";
 
 // Register Chart.js components
 ChartJS.register(
@@ -30,17 +31,20 @@ ChartJS.register(
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
+  const [notices, setNotices] = useState([]);
   const [registrations, setRegistrations] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [eventsData, registrationsData] = await Promise.all([
+        const [eventsData,noticesData, registrationsData] = await Promise.all([
           getAllEvents({ query: "", page: 1, limit: 10 }),
           getAllRegistrations(),
+          getAllNotice()
         ]);
 
         setEvents(eventsData?.data || []);
+        setNotices(noticesData)
         setRegistrations(registrationsData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -50,9 +54,9 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  const labels = ["Registrations", "Events"];
+  const labels = ["Registrations", "Events", "Notices"];
 
-  const datasetValues = [registrations.length, events.length];
+  const datasetValues = [registrations.length, events.length, notices.length];
 
   const pieData = {
     labels,
@@ -123,6 +127,11 @@ const Dashboard = () => {
           icon={<MessageSquare className="text-3xl text-yellow-500" />}
           title="Events"
           value={`${events.length}`}
+        />
+        <DashboardCard
+          icon={<MessageSquare className="text-3xl text-green-500" />}
+          title="Notices"
+          value={`${notices.length}`}
         />
       </div>
       <div className="mt-8">
