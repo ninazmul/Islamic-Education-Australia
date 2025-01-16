@@ -31,7 +31,7 @@ export default async function AdminLayout({
         <div className="flex justify-between items-center p-4 w-full border-b text-white bg-gradient-to-r from-primary-900 to-primary-500">
           <SidebarTrigger />
           <SignedIn>
-            <UserButton afterSwitchSessionUrl="/" />
+            <UserButton />
           </SignedIn>
         </div>
         {children}

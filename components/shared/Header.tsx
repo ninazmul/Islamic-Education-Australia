@@ -112,7 +112,7 @@ export default async function Header() {
                 </Link>
               </Button>
             )}
-            <UserButton afterSwitchSessionUrl="/" />
+            <UserButton />
           </SignedIn>
           <SignedOut>
             <Button
