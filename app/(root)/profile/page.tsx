@@ -24,10 +24,6 @@ export default async function ProfilePage() {
 
   const notices = await getAllNotice();
 
-  if (!userId || !user) {
-    return "/sign-in";
-  }
-
   return (
     <main className="bg-gray-50 min-h-screen py-12">
       <section className="max-w-6xl mx-auto px-4">
