@@ -21,7 +21,7 @@ export default async function Header() {
   const isRegisteredUser = await isRegistered(userId);
 
   return (
-    <header className="w-full text-white bg-gradient-to-r from-primary-500 to-primary-900">
+    <header className="w-full text-primary-900 bg-[#f6eedd]">
       {/* Top Section */}
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo and Title */}
@@ -44,7 +44,7 @@ export default async function Header() {
         <Donation />
       </div>
 
-      <hr className="border-t border-gray-200" />
+      <hr className="border-t border-gray-500" />
 
       {/* Navigation Section */}
       <div className="container mx-auto flex items-center justify-between py-4 px-4">

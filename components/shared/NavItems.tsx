@@ -20,7 +20,7 @@ const NavItems = ({ onItemSelected }: NavItemsProps) => {
           <li
             key={link.route}
             className={`${
-              isActive && "lg:text-white border-b border-black lg:border-white"
+              isActive && "lg:text-primary-900 border-b border-black lg:border-primary-900"
             } flex-center p-medium-16 whitespace-nowrap`}
           >
             <Link href={link.route} onClick={onItemSelected}>
