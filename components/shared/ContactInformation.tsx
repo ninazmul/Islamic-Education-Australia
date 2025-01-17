@@ -27,7 +27,7 @@ const ContactInformation = () => {
               <div className="flex items-center">
                 <FaPhoneVolume className="text-primary-500 size-8" />
                 <h3 className="body-2 ml-5 font-semibold">
-                  Phone: +612 02 9677 0961
+                  Phone: +612 9677 0961
                 </h3>
               </div>
               <p className="body-2 mt-3 text-n-4 text-muted-foreground">
