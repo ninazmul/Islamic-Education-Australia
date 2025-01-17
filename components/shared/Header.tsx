@@ -97,7 +97,9 @@ export default async function Header() {
               >
                 <Link href="/profile">
                   <UserPlus className="w-4 h-4" />
-                  Join Us
+                  <span className="flex items-center gap-1 text-xs">
+                    Join Us: <i className="text-xs">Bismillah !!</i>
+                  </span>
                 </Link>
               </Button>
             </SignedOut>
