@@ -39,7 +39,9 @@ export default async function Header() {
             <h1 className="md:hidden text-lg md:text-2xl lg:text-4xl font-serif font-bold">
               Islamic <br /> Education <br /> Australia
             </h1>
-            <i className="hidden md:flex absolute top-10 text-xs lg:text-sm w-full">Empowering Success through Faith, Knowledge, and Excellence</i>
+            <i className="hidden md:flex absolute top-10 text-xs lg:text-sm w-full">
+              Empowering Success through Faith, Knowledge, and Excellence
+            </i>
           </div>
         </Link>
 
@@ -90,9 +92,8 @@ export default async function Header() {
             <SignedOut>
               <Button
                 asChild
-                variant="outline"
                 size="sm"
-                className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+                className="flex items-center gap-2 rounded-full bg-yellow-400 hover:bg-yellow-600 text-primary-900"
               >
                 <Link href="/profile">
                   <UserPlus className="w-4 h-4" />
