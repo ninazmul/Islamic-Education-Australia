@@ -63,7 +63,7 @@ const Donation = () => {
     <>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger>
-          <Button className="rounded-full md:rounded-md bg-yellow-400 text-primary-900 font-bold px-6 py-2 hover:bg-yellow-600 flex items-center gap-2">
+          <Button className="rounded-full bg-yellow-400 text-primary-900 font-bold px-6 py-2 hover:bg-yellow-600 flex items-center gap-2">
             <HandHeartIcon /> <span className="hidden md:flex">Donate</span>
           </Button>
         </SheetTrigger>

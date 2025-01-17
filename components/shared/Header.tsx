@@ -73,13 +73,14 @@ export default async function Header() {
               ) : (
                 <Button
                   asChild
-                  variant="outline"
                   size="sm"
-                  className="flex items-center gap-2 rounded-full border-gray-300 hover:bg-gray-100"
+                  className="flex items-center gap-2 rounded-full bg-yellow-400 hover:bg-yellow-600 text-primary-900"
                 >
                   <Link href="/profile">
                     <UserPlus className="w-4 h-4" />
-                    Join Us
+                    <span className="flex items-center gap-1 text-xs">
+                      Join Us: <i className="text-xs">Bismillah !!</i>
+                    </span>
                   </Link>
                 </Button>
               )}
