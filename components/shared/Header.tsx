@@ -32,12 +32,15 @@ export default async function Header() {
             height={100}
             alt="Islamic Education Australia logo"
           />
-          <h1 className="hidden md:flex text-lg md:text-2xl lg:text-4xl font-serif font-bold">
-            Islamic Education Australia
-          </h1>
-          <h1 className="md:hidden text-lg md:text-2xl lg:text-4xl font-serif font-bold">
-            Islamic <br /> Education <br /> Australia
-          </h1>
+          <div className="relative flex flex-col justify-center">
+            <h1 className="hidden md:flex text-lg md:text-2xl lg:text-4xl font-serif font-bold">
+              Islamic Education Australia
+            </h1>
+            <h1 className="md:hidden text-lg md:text-2xl lg:text-4xl font-serif font-bold">
+              Islamic <br /> Education <br /> Australia
+            </h1>
+            <i className="hidden md:flex absolute top-10 text-xs lg:text-sm w-full">Empowering Success through Faith, Knowledge, and Excellence</i>
+          </div>
         </Link>
 
         {/* Donation Button */}
