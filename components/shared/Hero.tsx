@@ -108,7 +108,7 @@ const Hero: React.FC<HeroProps> = ({ banners }) => {
         </div>
       </div>
       <div className="absolute -right-20 top-[90%] md:top-[85%] lg:-top-20 rounded-full p-24 md:p-30 bg-primary-500 lg:bg-yellow-400 " />
-      <div className="absolute top-0 left-0 w-full h-96 md:h-[550px] lg:left-0 lg:w-64 bg-yellow-400 lg:min-h-screen" />
+      <div className="absolute top-0 left-0 w-full h-96 md:h-[550px] lg:left-0 lg:w-64 bg-primary-500 lg:min-h-screen" />
     </div>
   );
 };
