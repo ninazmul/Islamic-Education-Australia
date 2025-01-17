@@ -21,9 +21,9 @@ export default async function Header() {
   const isRegisteredUser = await isRegistered(userId);
 
   return (
-    <header className="w-full text-primary-900 bg-[#f6eedd]">
+    <header className="w-full text-primary-900 bg-gradient-to-r from-yellow-200 to-primary-500">
       {/* Top Section */}
-      <div className="container mx-auto flex items-center justify-between py-4 px-4">
+      <div className="container mx-auto flex items-center justify-between py-2 px-4">
         {/* Logo and Title */}
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -47,7 +47,7 @@ export default async function Header() {
       <hr className="border-t border-gray-500" />
 
       {/* Navigation Section */}
-      <div className="container mx-auto flex items-center justify-between py-4 px-4">
+      <div className="container mx-auto flex items-center justify-between py-2 px-4">
         {/* Navigation Links */}
         <div className="hidden lg:flex gap-8">
           <NavItems />

@@ -27,10 +27,20 @@ module.exports = withUt({
           foreground: "hsl(var(--primary-foreground))",
         },
         yellow: {
-          "400": "#FFD700",
-          DEFAULT: "#FFD700",
+          "50": "#FFFBEA", 
+          "100": "#FFF3C4",
+          "200": "#FCE588", 
+          "300": "#FADB5F", 
+          "400": "#FFD700", 
+          DEFAULT: "#FFD700", 
+          "500": "#FFC300", 
+          "600": "#FFB000", 
+          "700": "#FF9E00", 
+          "800": "#CC7A00", 
+          "900": "#995500", 
           foreground: "hsl(var(--yellow-foreground))",
         },
+
         coral: {
           "500": "#15BF59",
         },
