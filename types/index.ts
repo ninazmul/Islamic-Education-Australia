@@ -105,6 +105,14 @@ export type AddBannerParams = {
   Image: string;
 };
 
+// ====== RESOURCE PARAMS
+export type AddResourceParams = {
+  Heading: string;
+  Image: string;
+  Link: string;
+  Category: string;
+};
+
 // ====== NOTICE PARAMS
 export type AddNoticeParams = {
   Notice: string;
