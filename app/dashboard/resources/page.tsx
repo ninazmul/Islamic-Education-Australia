@@ -23,21 +23,23 @@ const Page = async () => {
       <section className="bg-green-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <Sheet>
           <div className="wrapper flex flex-wrap justify-between items-center">
-            <h3 className="h3-bold text-center sm:text-left">All Resources</h3>
+            <h3 className="h3-bold text-center sm:text-left">
+              Resource Library
+            </h3>
             <SheetTrigger>
               <Button size="lg" className="rounded-full">
-                Add Photo
+                Add Resource
               </Button>
             </SheetTrigger>
           </div>
 
           <SheetContent className="bg-white">
             <SheetHeader>
-              <SheetTitle>Add Photo to Banner</SheetTitle>
+              <SheetTitle>Add Resource</SheetTitle>
               <SheetDescription>
-                Use this form to upload a photo to the banner. Ensure the image
-                is high-quality and follows the system&apos;s guidelines for
-                proper display and organization within the banner.
+                Use this form to upload a new resource. Ensure the content is
+                high-quality and follows the guidelines for proper organization
+                within the resource library.
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">

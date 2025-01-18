@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Trash, SortAsc, SortDesc } from "lucide-react";
+import { Trash, SortAsc, SortDesc, Link } from "lucide-react";
 import { deleteResource } from "@/lib/actions/resource.actions";
 
 const ResourceTable = ({
@@ -27,7 +27,9 @@ const ResourceTable = ({
   }>;
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortKey, setSortKey] = useState<"heading" | "image" | "category" | null>(null);
+  const [sortKey, setSortKey] = useState<
+    "heading" | "image" | "category" | null
+  >(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
@@ -106,14 +108,26 @@ const ResourceTable = ({
             </TableHead>
             <TableHead>
               <div
+                onClick={() => handleSort("category")}
+                className="flex items-center gap-2"
+              >
+                Category
+                {sortKey === "category" &&
+                  (sortOrder === "asc" ? <SortAsc /> : <SortDesc />)}
+              </div>
+            </TableHead>
+            <TableHead>
+              <div
                 onClick={() => handleSort("heading")}
                 className="flex items-center gap-2"
               >
-                Name
+                Heading
                 {sortKey === "heading" &&
                   (sortOrder === "asc" ? <SortAsc /> : <SortDesc />)}
               </div>
             </TableHead>
+
+            <TableHead>Link</TableHead>
 
             <TableHead>Actions</TableHead>
           </TableRow>
@@ -133,8 +147,13 @@ const ResourceTable = ({
                   className="object-cover rounded-md"
                 />
               </TableCell>
+              <TableCell>{resource.category}</TableCell>
               <TableCell>{resource.heading}</TableCell>
-
+              <TableCell>
+                <Link href={resource.link} target="_blank">
+                  {resource.link}
+                </Link>
+              </TableCell>
               <TableCell>
                 <Button
                   onClick={() => setConfirmDeleteId(resource._id)}
