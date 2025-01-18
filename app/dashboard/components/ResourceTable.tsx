@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Trash, SortAsc, SortDesc } from "lucide-react";
+import { Trash, SortAsc, SortDesc, Edit } from "lucide-react";
 import { deleteResource } from "@/lib/actions/resource.actions";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -161,24 +161,20 @@ const ResourceTable = ({
               <TableCell className="flex items-center space-x-2">
                 <Sheet>
                   <SheetTrigger>
-                    <Button variant={"outline"} className="text-red-500">
-                      <Image
-                        src="/assets/icons/edit.svg"
-                        alt="edit"
-                        width={20}
-                        height={20}
-                      />
+                    <Button variant={"outline"} className="text-purple-500">
+                      <Edit/>
                     </Button>
                   </SheetTrigger>
 
                   <SheetContent className="bg-white">
                     <SheetHeader>
-                      <SheetTitle>Update Volunteer Details</SheetTitle>
+                      <SheetTitle>Update Resource Details</SheetTitle>
                       <SheetDescription>
-                        Update information to ensure our records are accurate
-                        and up to date. Please review and modify details as
-                        needed, adhering to the system&apos;s requirements for
-                        proper record management and organization.
+                        Update resource information to ensure the library
+                        remains accurate and up-to-date. Please review and
+                        modify the details as needed, adhering to the
+                        system&apos;s guidelines for proper resource management
+                        and organization.
                       </SheetDescription>
                     </SheetHeader>
                     <div className="py-5">
