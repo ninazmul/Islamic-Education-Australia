@@ -91,6 +91,7 @@ const ResourceForm = ({
 
         if (updatedResource) {
           form.reset();
+          router.push(`/dashboard/resources`);
         }
       }
     } catch (error) {
