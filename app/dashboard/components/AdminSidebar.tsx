@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, Users, Shield, ImageIcon, Text } from "lucide-react";
+import { LayoutDashboard, Users, Shield, ImageIcon, Text, FilesIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,6 +35,11 @@ const sidebarItems = [
     title: "NoticeBoard",
     url: "/dashboard/notices",
     icon: Text,
+  },
+  {
+    title: "Resources",
+    url: "/dashboard/resources",
+    icon: FilesIcon,
   },
   {
     title: "Admins",
