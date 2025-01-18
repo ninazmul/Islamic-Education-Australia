@@ -151,7 +151,7 @@ const ResourceTable = ({
               <TableCell>{resource.category}</TableCell>
               <TableCell>{resource.heading}</TableCell>
               <TableCell>
-                <Link href={resource.link} target="_blank" className="text-blue-900 underline">
+                <Link href={resource.link} target="_blank" className="text-blue-900 underline line-clamp-1">
                   {resource.link}
                 </Link>
               </TableCell>
