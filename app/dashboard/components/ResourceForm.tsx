@@ -47,7 +47,6 @@ const ResourceForm = ({
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
-  const [newCategory, setNewCategory] = useState<string>("");
 
   const initialValues =
     resource && type === "Update"
@@ -94,7 +93,7 @@ const ResourceForm = ({
         const newResource = await addResource({
           Heading: values.heading,
           Link: values.link,
-          Category: newCategory || values.category,
+          Category: values.category,
           Image: uploadedImageUrl,
         });
 
@@ -105,7 +104,6 @@ const ResourceForm = ({
       } else if (type === "Update" && userId && resourceId) {
         const updatedResource = await updateResource(resourceId, {
           ...values,
-          Category: newCategory || values.category,
           Image: uploadedImageUrl,
         });
 
@@ -142,7 +140,7 @@ const ResourceForm = ({
           )}
         />
 
-        {/* Category Field */}
+        {/* Combined Category Field */}
         <FormField
           control={form.control}
           name="category"
@@ -151,7 +149,7 @@ const ResourceForm = ({
               <FormControl>
                 <div className="relative">
                   <Input
-                    placeholder="Category"
+                    placeholder="Select or type category"
                     list="categories"
                     {...field}
                     className="input-field"
@@ -166,12 +164,6 @@ const ResourceForm = ({
               <FormMessage />
             </FormItem>
           )}
-        />
-        <Input
-          placeholder="Or type new category"
-          value={newCategory}
-          onChange={(e) => setNewCategory(e.target.value)}
-          className="input-field mt-2"
         />
 
         {/* Resource Field */}
