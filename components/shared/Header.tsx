@@ -40,7 +40,7 @@ export default async function Header() {
               Islamic <br /> Education <br /> Australia
             </h1>
             <i className="hidden md:flex absolute top-10 text-xs lg:text-sm w-full">
-              Empowering Success through Faith, Knowledge, and Excellence
+              Empowering Success through Faith, Knowledge and Excellence
             </i>
           </div>
         </Link>
