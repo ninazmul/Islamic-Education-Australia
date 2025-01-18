@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Trash, SortAsc, SortDesc, Link } from "lucide-react";
+import { Trash, SortAsc, SortDesc } from "lucide-react";
 import { deleteResource } from "@/lib/actions/resource.actions";
+import Link from "next/link";
 
 const ResourceTable = ({
   resources,
@@ -150,7 +151,7 @@ const ResourceTable = ({
               <TableCell>{resource.category}</TableCell>
               <TableCell>{resource.heading}</TableCell>
               <TableCell>
-                <Link href={resource.link} target="_blank">
+                <Link href={resource.link} target="_blank" className="text-blue-900 underline">
                   {resource.link}
                 </Link>
               </TableCell>
