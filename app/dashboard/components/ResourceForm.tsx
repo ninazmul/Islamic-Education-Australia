@@ -130,7 +130,7 @@ const ResourceForm = ({
             <FormItem className="w-full">
               <FormControl>
                 <Input
-                  placeholder="Heading"
+                  placeholder="Write Category"
                   {...field}
                   className="input-field"
                 />
