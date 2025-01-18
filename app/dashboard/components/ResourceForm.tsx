@@ -13,14 +13,10 @@ import {
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUploadThing } from "@/lib/uploadthing";
 import { FileUploader } from "@/components/shared/FileUploader";
-import {
-  addResource,
-  getAllCategories,
-  updateResource,
-} from "@/lib/actions/resource.actions";
+import { addResource, updateResource } from "@/lib/actions/resource.actions";
 import { IResource } from "@/lib/database/models/resource.model";
 import { resourceDefaultValues } from "@/constants";
 
@@ -46,7 +42,6 @@ const ResourceForm = ({
 }: ResourceFormProps) => {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
 
   const initialValues =
     resource && type === "Update"
@@ -56,19 +51,6 @@ const ResourceForm = ({
       : resourceDefaultValues;
 
   const { startUpload } = useUploadThing("imageUploader");
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const fetchedCategories = await getAllCategories();
-        setCategories(fetchedCategories);
-      } catch (error) {
-        console.error("Failed to fetch categories", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
 
   const form = useForm<z.infer<typeof resourceFormSchema>>({
     resolver: zodResolver(resourceFormSchema),
@@ -140,26 +122,18 @@ const ResourceForm = ({
           )}
         />
 
-        {/* Combined Category Field */}
+        {/* Category Field */}
         <FormField
           control={form.control}
           name="category"
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <div className="relative">
-                  <Input
-                    placeholder="Select or type category"
-                    list="categories"
-                    {...field}
-                    className="input-field"
-                  />
-                  <datalist id="categories">
-                    {categories.map((category) => (
-                      <option key={category} value={category} />
-                    ))}
-                  </datalist>
-                </div>
+                <Input
+                  placeholder="Heading"
+                  {...field}
+                  className="input-field"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
