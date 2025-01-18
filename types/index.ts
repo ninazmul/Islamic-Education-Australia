@@ -106,7 +106,7 @@ export type AddBannerParams = {
 };
 
 // ====== RESOURCE PARAMS
-export type AddResourceParams = {
+export type ResourceParams = {
   Heading: string;
   Image: string;
   Link: string;

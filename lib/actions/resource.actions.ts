@@ -1,6 +1,6 @@
 "use server";
 
-import { AddResourceParams } from "@/types";
+import { ResourceParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import Resource from "../database/models/resource.model";
@@ -10,7 +10,7 @@ export const addResource = async ({
   Image,
   Link,
   Category,
-}: AddResourceParams) => {
+}: ResourceParams) => {
   try {
     await connectToDatabase();
 
@@ -34,6 +34,43 @@ export const getAllResource = async () => {
     const resource = await Resource.find();
 
     return JSON.parse(JSON.stringify(resource));
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// ====== UPDATE RESOURCE
+export const updateResource = async (
+  resourceId: string,
+  updateData: Partial<ResourceParams>
+) => {
+  try {
+    await connectToDatabase();
+
+    const updatedResource = await Resource.findByIdAndUpdate(
+      resourceId,
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedResource) {
+      throw new Error("Resource not found");
+    }
+
+    return JSON.parse(JSON.stringify(updatedResource));
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// ====== GET CATEGORIES
+export const getAllCategories = async () => {
+  try {
+    await connectToDatabase();
+
+    const categories = await Resource.distinct("category");
+
+    return JSON.parse(JSON.stringify(categories));
   } catch (error) {
     handleError(error);
   }

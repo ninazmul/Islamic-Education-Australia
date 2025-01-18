@@ -87,7 +87,7 @@ export const updateRegistration = async (
   } catch (error) {
     handleError(error);
   }
-};
+};Z
 
 // ====== DELETE REGISTRATION
 export const deleteRegistration = async (registrationId: string) => {

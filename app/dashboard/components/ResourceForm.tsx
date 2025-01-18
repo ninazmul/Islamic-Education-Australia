@@ -13,10 +13,16 @@ import {
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUploadThing } from "@/lib/uploadthing";
 import { FileUploader } from "@/components/shared/FileUploader";
-import { addResource } from "@/lib/actions/resource.actions";
+import {
+  addResource,
+  getAllCategories,
+  updateResource,
+} from "@/lib/actions/resource.actions";
+import { IResource } from "@/lib/database/models/resource.model";
+import { resourceDefaultValues } from "@/constants";
 
 export const resourceFormSchema = z.object({
   heading: z.string().min(3, "Heading must be at least 3 characters."),
@@ -25,20 +31,49 @@ export const resourceFormSchema = z.object({
   category: z.string().min(3, "Category must be at least 3 characters."),
 });
 
-const ResourceForm = ({ userId, type }: { userId: string; type: "Create" }) => {
+type ResourceFormProps = {
+  userId: string;
+  type: "Create" | "Update";
+  resource?: IResource;
+  resourceId?: string;
+};
+
+const ResourceForm = ({
+  userId,
+  type,
+  resource,
+  resourceId,
+}: ResourceFormProps) => {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [newCategory, setNewCategory] = useState<string>("");
+
+  const initialValues =
+    resource && type === "Update"
+      ? {
+          ...resource,
+        }
+      : resourceDefaultValues;
 
   const { startUpload } = useUploadThing("imageUploader");
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const fetchedCategories = await getAllCategories();
+        setCategories(fetchedCategories);
+      } catch (error) {
+        console.error("Failed to fetch categories", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const form = useForm<z.infer<typeof resourceFormSchema>>({
     resolver: zodResolver(resourceFormSchema),
-    defaultValues: {
-      heading: "",
-      image: "",
-      link: "",
-      category:""
-    },
+    defaultValues: initialValues,
   });
 
   async function onSubmit(values: z.infer<typeof resourceFormSchema>) {
@@ -58,14 +93,24 @@ const ResourceForm = ({ userId, type }: { userId: string; type: "Create" }) => {
       if (type === "Create" && userId) {
         const newResource = await addResource({
           Heading: values.heading,
-          Image: uploadedImageUrl,
           Link: values.link,
-          Category: values.category,
+          Category: newCategory || values.category,
+          Image: uploadedImageUrl,
         });
 
         if (newResource) {
           form.reset();
           router.push(`/dashboard/resources`);
+        }
+      } else if (type === "Update" && userId && resourceId) {
+        const updatedResource = await updateResource(resourceId, {
+          ...values,
+          Category: newCategory || values.category,
+          Image: uploadedImageUrl,
+        });
+
+        if (updatedResource) {
+          form.reset();
         }
       }
     } catch (error) {
@@ -104,15 +149,29 @@ const ResourceForm = ({ userId, type }: { userId: string; type: "Create" }) => {
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Input
-                  placeholder="Heading"
-                  {...field}
-                  className="input-field"
-                />
+                <div className="relative">
+                  <Input
+                    placeholder="Category"
+                    list="categories"
+                    {...field}
+                    className="input-field"
+                  />
+                  <datalist id="categories">
+                    {categories.map((category) => (
+                      <option key={category} value={category} />
+                    ))}
+                  </datalist>
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
+        />
+        <Input
+          placeholder="Or type new category"
+          value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)}
+          className="input-field mt-2"
         />
 
         {/* Resource Field */}

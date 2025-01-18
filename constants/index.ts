@@ -74,3 +74,10 @@ export const registrationDefaultValues = {
   status: "pending",
   userId: "",
 };
+
+export const resourceDefaultValues = {
+  heading: "",
+  image: "",
+  link: "",
+  category: "",
+};
