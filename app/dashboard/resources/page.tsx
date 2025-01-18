@@ -50,7 +50,7 @@ const Page = async () => {
       </section>
 
       <div className="wrapper my-8">
-        <ResourceTable resources={resources} />
+        <ResourceTable userId={userId} resources={resources} />
       </div>
     </>
   );

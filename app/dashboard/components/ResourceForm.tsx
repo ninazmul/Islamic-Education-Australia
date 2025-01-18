@@ -30,7 +30,7 @@ export const resourceFormSchema = z.object({
 type ResourceFormProps = {
   userId: string;
   type: "Create" | "Update";
-  resource?: IResource;
+  resource?: IResource | undefined;
   resourceId?: string;
 };
 

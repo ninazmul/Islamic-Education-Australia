@@ -15,17 +15,16 @@ import { Input } from "@/components/ui/input";
 import { Trash, SortAsc, SortDesc } from "lucide-react";
 import { deleteResource } from "@/lib/actions/resource.actions";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import ResourceForm from "./ResourceForm";
+import { IResource } from "@/lib/database/models/resource.model";
 
 const ResourceTable = ({
   resources,
+  userId,
 }: {
-  resources: Array<{
-    _id: string;
-    heading: string;
-    image: string;
-    category: string;
-    link: string;
-  }>;
+  resources: Array<IResource>;
+  userId: string;
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortKey, setSortKey] = useState<
@@ -151,11 +150,47 @@ const ResourceTable = ({
               <TableCell>{resource.category}</TableCell>
               <TableCell>{resource.heading}</TableCell>
               <TableCell>
-                <Link href={resource.link} target="_blank" className="text-blue-900 underline line-clamp-1">
+                <Link
+                  href={resource.link}
+                  target="_blank"
+                  className="text-blue-900 underline line-clamp-1"
+                >
                   {resource.link}
                 </Link>
               </TableCell>
-              <TableCell>
+              <TableCell className="flex items-center space-x-2">
+                <Sheet>
+                  <SheetTrigger>
+                    <Button variant={"outline"} className="text-red-500">
+                      <Image
+                        src="/assets/icons/edit.svg"
+                        alt="edit"
+                        width={20}
+                        height={20}
+                      />
+                    </Button>
+                  </SheetTrigger>
+
+                  <SheetContent className="bg-white">
+                    <SheetHeader>
+                      <SheetTitle>Update Volunteer Details</SheetTitle>
+                      <SheetDescription>
+                        Update information to ensure our records are accurate
+                        and up to date. Please review and modify details as
+                        needed, adhering to the system&apos;s requirements for
+                        proper record management and organization.
+                      </SheetDescription>
+                    </SheetHeader>
+                    <div className="py-5">
+                      <ResourceForm
+                        userId={userId}
+                        resource={resource}
+                        resourceId={resource?._id}
+                        type="Update"
+                      />
+                    </div>
+                  </SheetContent>
+                </Sheet>
                 <Button
                   onClick={() => setConfirmDeleteId(resource._id)}
                   variant={"outline"}
