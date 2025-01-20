@@ -56,7 +56,7 @@ const OurPriorities = () => {
         </div>
         <div className="flex justify-center w-full lg:w-1/2 relative">
           <Image
-            src="/assets/images/photos/01 download.jfif"
+            src="/assets/images/photos/Designer (11).jpeg"
             width={500}
             height={500}
             alt="Islamic Education Australia logo"
