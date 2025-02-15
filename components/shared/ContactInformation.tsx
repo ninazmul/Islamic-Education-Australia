@@ -95,8 +95,7 @@ const ContactInformation = () => {
               <div className="flex items-center">
                 <FaLocationDot className="text-primary-500 size-8" />
                 <h3 className="body-2 ml-5 font-semibold">
-                  Address: Level 1, Unit 6, 27 Hunter Street, Parramatta, NSW
-                  2150
+                  Address: 144 Hyatts Road, Plumpton, NSW 2761
                 </h3>
               </div>
               <p className="body-2 mt-3 text-n-4 text-muted-foreground">
