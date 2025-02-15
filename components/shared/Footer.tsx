@@ -103,7 +103,7 @@ const Footer = () => {
           <p className="text-sm text-gray-500">
             Developed by{" "}
             <Link
-              href="https://ninazmuldev.vercel.app"
+              href="https://www.artistycode.studio"
               target="_blank"
               className="text-blue-900 hover:underline"
             >
