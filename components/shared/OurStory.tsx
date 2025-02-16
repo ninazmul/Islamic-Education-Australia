@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const OurStory = () => {
   return (
-    <div className="relative h-[1450px] md:h-[1250px] lg:h-[1000px] overflow-hidden">
+    <div className="relative h-[1230px] md:h-[1070px] lg:h-[870px] overflow-hidden">
       <div className="absolute flex flex-col-reverse lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="flex justify-center w-full lg:w-1/2 relative">
           <Image
-            src="/assets/images/photos/freepik__the-style-is-candid-image-photography-with-natural__93472.png"
+            src="/assets/images/photos/freepik__the-style-is-candid-image-photography-with-natural__25015.png"
             width={500}
             height={500}
             alt="Islamic Education Australia logo"
@@ -33,22 +33,18 @@ const OurStory = () => {
               and socially.
             </p>
             <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-              Islamic Education Australia was born from a shared vision and a
-              spiritual journey. The founding members connected during their
-              Hajj pilgrimage, where they discovered a mutual passion for
-              education and community building. Inspired by their faith and love
-              for the Muslim community, they committed to creating a space where
-              young Australian Muslims could thrive academically, spiritually,
-              and socially.
+              With a deep desire to serve, they set out to establish Muslim
+              College Sydney, a school that would not only provide high-quality
+              education but also instil strong Islamic values and a sense of
+              identity. Their dream extends beyond the classroom, envisioning
+              the creation of a mosque and Islamic centre that would serve as a
+              hub for worship, learning, and community engagement.
             </p>
             <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
-              Islamic Education Australia was born from a shared vision and a
-              spiritual journey. The founding members connected during their
-              Hajj pilgrimage, where they discovered a mutual passion for
-              education and community building. Inspired by their faith and love
-              for the Muslim community, they committed to creating a space where
-              young Australian Muslims could thrive academically, spiritually,
-              and socially.
+              Through this project, the founders hope to empower future
+              generations to lead with faith, wisdom, and compassion, and to
+              ensure that every child has the opportunity to embrace their
+              identity as a confident Australian Muslim.
             </p>
           </div>
         </div>
