@@ -7,7 +7,7 @@ const MediaAndOutreachPartners = () => {
       <div className="absolute flex flex-col-reverse lg:flex-row items-center justify-around p-10 lg:p-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
         <div className="flex justify-center w-full lg:w-1/2 relative">
           <Image
-            src="/assets/images/Service/knowledge.png"
+            src="/assets/images/photos/knowledge.png"
             width={500}
             height={500}
             alt="Islamic Education Australia logo"

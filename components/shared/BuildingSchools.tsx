@@ -24,7 +24,7 @@ const BuildingSchools = () => {
         <div className="absolute flex flex-col-reverse lg:flex-row items-center justify-around px-10 lg:px-20 z-20 gap-12 lg:gap-0 mx-auto w-full">
           <div className="flex justify-center w-full lg:w-1/2 relative">
             <Image
-              src="/assets/images/Service/knowledge.png"
+              src="/assets/images/photos/freepik__the-style-is-candid-image-photography-with-natural__47002.png"
               width={500}
               height={500}
               alt="Islamic Education Australia logo"

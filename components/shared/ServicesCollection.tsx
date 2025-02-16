@@ -4,22 +4,22 @@ import Link from "next/link";
 const ServicesCollection = () => {
   const servicesData = [
     {
-      imageUrl: "/assets/images/Service/Build.png",
+      imageUrl: "/assets/images/photos/Build.png",
       title: "Build A Community",
       description: "We are working with individuals and communities to connect",
       tag: "Build A Community",
     },
     {
-      imageUrl: "/assets/images/Service/knowledge.png",
+      imageUrl: "/assets/images/photos/knowledge.png",
       title: "Increase Islamic Knowledge",
       description:
-            "We encourage and facilitate various avenue for the community",
+        "We encourage and facilitate various avenue for the community",
       tag: "Increase Islamic Knowledge",
     },
     {
-      imageUrl: "/assets/images/Service/serve.png",
+      imageUrl: "/assets/images/photos/serve.png",
       title: "Serve The Community",
-        description: "We work closely with community member to provide following",
+      description: "We work closely with community member to provide following",
       tag: "Serve Community",
     },
   ];

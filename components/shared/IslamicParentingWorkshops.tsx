@@ -40,7 +40,7 @@ const IslamicParentingWorkshops = () => {
         </div>
         <div className="flex justify-center w-full lg:w-1/2 relative">
           <Image
-            src="/assets/images/Service/knowledge.png"
+            src="/assets/images/photos/freepik__the-style-is-candid-image-photography-with-natural__47009.png"
             width={500}
             height={500}
             alt="Islamic Education Australia logo"

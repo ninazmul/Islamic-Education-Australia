@@ -6,7 +6,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import NavItems from "./NavItems";
 import { LogIn, Shield, UserPen, UserPlus } from "lucide-react";
 import MobileNav from "./MobileNav";
-import Donation from "./Donation";
+// import Donation from "./Donation";
 import { auth } from "@clerk/nextjs/server";
 import { getUserEmailById } from "@/lib/actions/user.actions";
 import { isAdmin } from "@/lib/actions/admin.actions";
@@ -36,8 +36,8 @@ export default async function Header() {
             <h1 className="hidden md:flex text-lg md:text-2xl lg:text-4xl font-serif font-bold">
               Islamic Education Australia
             </h1>
-            <h1 className="md:hidden text-lg md:text-2xl lg:text-4xl font-serif font-bold">
-              Islamic <br /> Education <br /> Australia
+            <h1 className="md:hidden text-2xl lg:text-4xl font-serif font-bold">
+              Islamic Education Australia
             </h1>
             <i className="hidden md:flex absolute top-10 text-xs lg:text-sm w-full">
               Empowering Success through Faith, Knowledge and Excellence
@@ -46,7 +46,7 @@ export default async function Header() {
         </Link>
 
         {/* Donation Button */}
-        <Donation />
+        {/* <Donation /> */}
       </div>
 
       <hr className="border-t border-gray-500" />
