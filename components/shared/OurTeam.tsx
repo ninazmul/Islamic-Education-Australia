@@ -10,9 +10,9 @@ import { useRef, useState } from "react";
 
 const teamMembers = [
   {
-    name: "John Doe",
-    role: "CEO",
-    image: "/assets/images/test-2.png",
+    name: "Mizan Howlader",
+    role: "Finance & Community Leader",
+    image: "/assets/images/Teams/MH IEA Profile Photo 3.png",
     socials: {
       facebook: "https://facebook.com/johndoe",
       twitter: "https://twitter.com/johndoe",
@@ -20,9 +20,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Jane Smith",
-    role: "CTO",
-    image: "/assets/images/test-2.png",
+    name: "Sheikh Youssef Hassan",
+    role: "Educator & Family Counsellor",
+    image: "/assets/images/Teams/Sheikh Youssef Hassan.jpg",
     socials: {
       facebook: "https://facebook.com/janesmith",
       twitter: "https://twitter.com/janesmith",
@@ -30,29 +30,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Jane two",
-    role: "CTO",
-    image: "/assets/images/test-2.png",
-    socials: {
-      facebook: "https://facebook.com/janesmith",
-      twitter: "https://twitter.com/janesmith",
-      linkedin: "https://linkedin.com/in/janesmith",
-    },
-  },
-  {
-    name: "Jane three",
-    role: "CTO",
-    image: "/assets/images/test-2.png",
-    socials: {
-      facebook: "https://facebook.com/janesmith",
-      twitter: "https://twitter.com/janesmith",
-      linkedin: "https://linkedin.com/in/janesmith",
-    },
-  },
-  {
-    name: "Jane Four",
-    role: "CTO",
-    image: "/assets/images/test-2.png",
+    name: "AKM Moniruzzaman",
+    role: "IT Specialist & Islamic Finance Advocate",
+    image: "/assets/images/Teams/AK Moniruzzaman.jpg",
     socials: {
       facebook: "https://facebook.com/janesmith",
       twitter: "https://twitter.com/janesmith",
@@ -75,7 +55,7 @@ const OurTeam = () => {
         slides: { perView: 3, spacing: 20 },
       },
       "(min-width: 1024px)": {
-        slides: { perView: 4, spacing: 20 },
+        slides: { perView: 3, spacing: 20 },
       },
     },
     created() {
@@ -146,7 +126,7 @@ const OurTeam = () => {
             <div className="pt-4">
               <h2 className="font-bold text-lg">{member.name}</h2>
               <h3 className="text-primary-500">{member.role}</h3>
-              <div className="flex items-center gap-4 py-4">
+              <div className="flex items-center justify-center gap-4 py-4">
                 <Link href={member.socials.facebook} target="_blank">
                   <ImFacebook className="size-8 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
                 </Link>
