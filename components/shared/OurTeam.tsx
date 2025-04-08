@@ -18,7 +18,7 @@ const teamMembers = [
   },
   {
     name: "Sheikh Youssef Hassan",
-    role: "Educator & Family Counsellor",
+    role: "Educator & Relgious Leader",
     image: "/assets/images/Teams/Sheikh Youssef Hassan.jpg",
     socials: {
       facebook: "https://facebook.com/janesmith",
