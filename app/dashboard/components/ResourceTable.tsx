@@ -15,7 +15,14 @@ import { Input } from "@/components/ui/input";
 import { Trash, SortAsc, SortDesc, Edit } from "lucide-react";
 import { deleteResource } from "@/lib/actions/resource.actions";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import ResourceForm from "./ResourceForm";
 import { IResource } from "@/lib/database/models/resource.model";
 
@@ -40,7 +47,7 @@ const ResourceTable = ({
       (resource) =>
         resource.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
         resource.image.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        resource.category.toLowerCase().includes(searchQuery.toLowerCase())
+        resource.category.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     if (sortKey) {
@@ -134,7 +141,10 @@ const ResourceTable = ({
         </TableHeader>
         <TableBody>
           {paginatedResources.map((resource, index) => (
-            <TableRow key={resource._id} className="hover:bg-gray-100">
+            <TableRow
+              key={resource._id.toString()}
+              className="hover:bg-gray-100"
+            >
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -162,7 +172,7 @@ const ResourceTable = ({
                 <Sheet>
                   <SheetTrigger>
                     <Button variant={"outline"} className="text-purple-500">
-                      <Edit/>
+                      <Edit />
                     </Button>
                   </SheetTrigger>
 
@@ -181,14 +191,14 @@ const ResourceTable = ({
                       <ResourceForm
                         userId={userId}
                         resource={resource}
-                        resourceId={resource?._id}
+                        resourceId={resource?._id.toString()}
                         type="Update"
                       />
                     </div>
                   </SheetContent>
                 </Sheet>
                 <Button
-                  onClick={() => setConfirmDeleteId(resource._id)}
+                  onClick={() => setConfirmDeleteId(resource._id.toString())}
                   variant={"outline"}
                   className="text-red-500"
                 >

@@ -31,7 +31,7 @@ const BannerTable = ({
     const filtered = banners.filter(
       (admin) =>
         admin.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        admin.image.toLowerCase().includes(searchQuery.toLowerCase())
+        admin.image.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     if (sortKey) {
@@ -113,7 +113,7 @@ const BannerTable = ({
         </TableHeader>
         <TableBody>
           {paginatedBanners.map((photo, index) => (
-            <TableRow key={photo._id} className="hover:bg-gray-100">
+            <TableRow key={photo._id.toString()} className="hover:bg-gray-100">
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -130,7 +130,7 @@ const BannerTable = ({
 
               <TableCell>
                 <Button
-                  onClick={() => setConfirmDeleteId(photo._id)}
+                  onClick={() => setConfirmDeleteId(photo._id.toString())}
                   variant={"outline"}
                   className="text-red-500"
                 >

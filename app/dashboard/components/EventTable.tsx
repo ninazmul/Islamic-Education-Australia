@@ -103,9 +103,8 @@ const EventTable = ({
             </TableHeader>
             <TableBody>
               {sortedData.map((event, index) => {
-
                 return (
-                  <TableRow key={event._id}>
+                  <TableRow key={event._id.toString()}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
                       <Image
@@ -118,7 +117,7 @@ const EventTable = ({
                     </TableCell>
                     <TableCell>
                       <Link
-                        href={`/events/${event._id}`}
+                        href={`/events/${event._id.toString()}`}
                         className="line-clamp-1 w-40 md:w-auto hover:underline"
                       >
                         {event.title}
@@ -132,10 +131,12 @@ const EventTable = ({
                         {new Date(event.createdAt).toLocaleDateString()}
                       </span>
                     </TableCell>
-                    
+
                     <TableCell>
                       <div className="flex items-center gap-4">
-                        <Link href={`/dashboard/events/${event._id}/update`}>
+                        <Link
+                          href={`/dashboard/events/${event._id.toString()}/update`}
+                        >
                           <Image
                             src="/assets/icons/edit.svg"
                             alt="edit"
@@ -143,7 +144,9 @@ const EventTable = ({
                             height={20}
                           />
                         </Link>
-                        <EventDeleteConfirmation eventId={event._id} />
+                        <EventDeleteConfirmation
+                          eventId={event._id.toString()}
+                        />
                       </div>
                     </TableCell>
                   </TableRow>

@@ -27,9 +27,8 @@ const EventCollection = ({
         <div className="flex flex-col items-center gap-10">
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
             {data.map((event) => {
-
               return (
-                <li key={event._id} className="flex justify-center">
+                <li key={event._id.toString()} className="flex justify-center">
                   <EventCard event={event} />
                 </li>
               );

@@ -36,8 +36,8 @@ export default async function ProfilePage() {
             {isRegisteredUser
               ? "Thank you for being a part of our volunteer community. We appreciate your dedication!"
               : isSubmittedUser
-              ? "Your registration is pending approval. We will notify you once it is approved."
-              : "Please connect with us and let’s bring your vision to life!"}
+                ? "Your registration is pending approval. We will notify you once it is approved."
+                : "Please connect with us and let’s bring your vision to life!"}
           </p>
           <br />
           <div className="text-gray-700">
@@ -97,7 +97,10 @@ export default async function ProfilePage() {
                   Check your current volunteer registration details.
                 </p>
                 <div className="mt-4">
-                  <Link href={`/profile/${registration._id}`} className="block">
+                  <Link
+                    href={`/profile/${registration._id.toString()}`}
+                    className="block"
+                  >
                     <Button variant="outline" size="lg" className="w-full">
                       <Eye className="mr-2" /> View Details
                     </Button>
@@ -118,7 +121,7 @@ export default async function ProfilePage() {
                   <RegistrationForm
                     userId={userId}
                     registration={registration}
-                    registrationId={registration?._id}
+                    registrationId={registration?._id.toString()}
                     type="Update"
                   />
                 </div>

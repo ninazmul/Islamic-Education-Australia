@@ -37,7 +37,7 @@ const VolunteerTable = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortKey, setSortKey] = useState<"name" | "email" | "status" | null>(
-    null
+    null,
   );
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,7 +53,7 @@ const VolunteerTable = ({
         registration.lastName
           .toLowerCase()
           .includes(searchQuery.toLowerCase()) ||
-        registration.email.toLowerCase().includes(searchQuery.toLowerCase())
+        registration.email.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     if (sortKey) {
@@ -107,7 +107,7 @@ const VolunteerTable = ({
 
   const handleToggleStatus = async (
     registrationId: string,
-    currentStatus: string
+    currentStatus: string,
   ) => {
     try {
       const newStatus = currentStatus === "pending" ? "approved" : "pending";
@@ -181,13 +181,16 @@ const VolunteerTable = ({
         </TableHeader>
         <TableBody>
           {paginatedRegistrations.map((registration, index) => (
-            <TableRow key={registration._id} className="hover:bg-gray-100">
+            <TableRow
+              key={registration._id.toString()}
+              className="hover:bg-gray-100"
+            >
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
               <TableCell>
                 <Link
-                  href={`/dashboard/volunteers/${registration._id}`}
+                  href={`/dashboard/volunteers/${registration._id.toString()}`}
                   className="line-clamp-1 w-40 md:w-auto hover:underline"
                 >
                   {registration.firstName} {registration.lastName}
@@ -201,7 +204,7 @@ const VolunteerTable = ({
               <TableCell>
                 <Button
                   onClick={() =>
-                    handleToggleStatus(registration._id, registration.status)
+                    handleToggleStatus(registration._id.toString(), registration.status)
                   }
                   variant={"outline"}
                   className={
@@ -251,14 +254,16 @@ const VolunteerTable = ({
                       <RegistrationFrom
                         userId={registration.userId}
                         registration={registration}
-                        registrationId={registration?._id}
+                        registrationId={registration?._id.toString()}
                         type="Update"
                       />
                     </div>
                   </SheetContent>
                 </Sheet>
                 <Button
-                  onClick={() => setConfirmDeleteId(registration._id)}
+                  onClick={() =>
+                    setConfirmDeleteId(registration._id.toString())
+                  }
                   variant={"outline"}
                   className="text-red-500"
                 >

@@ -71,7 +71,9 @@ export async function deleteUser(clerkId: string) {
       throw new Error("User not found");
     }
 
-    const deletedUser = await User.findByIdAndDelete(userToDelete._id);
+    const deletedUser = await User.findByIdAndDelete(
+      userToDelete._id.toString(),
+    );
     revalidatePath("/");
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null;
@@ -88,7 +90,7 @@ export async function getUserEmailById(userId: string) {
 
     if (!user) {
       return null;
-    };
+    }
     return user.email;
   } catch (error) {
     handleError(error);

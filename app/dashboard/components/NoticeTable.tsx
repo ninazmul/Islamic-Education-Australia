@@ -17,7 +17,7 @@ import { deleteBanner } from "@/lib/actions/banner.actions";
 const NoticeTable = ({
   notices,
 }: {
-  notices: Array<{ _id: string; notice: string; }>;
+  notices: Array<{ _id: string; notice: string }>;
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortKey, setSortKey] = useState<"notice" | null>(null);
@@ -27,9 +27,8 @@ const NoticeTable = ({
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
 
   const filteredNotices = useMemo(() => {
-    const filtered = notices.filter(
-      (admin) =>
-        admin.notice.toLowerCase().includes(searchQuery.toLowerCase())
+    const filtered = notices.filter((admin) =>
+      admin.notice.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     if (sortKey) {
@@ -64,7 +63,7 @@ const NoticeTable = ({
     }
   };
 
-  const handleSort = (key: "notice" ) => {
+  const handleSort = (key: "notice") => {
     if (sortKey === key) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
@@ -101,7 +100,7 @@ const NoticeTable = ({
         </TableHeader>
         <TableBody>
           {paginatedNotices.map((notice, index) => (
-            <TableRow key={notice._id} className="hover:bg-gray-100">
+            <TableRow key={notice._id.toString()} className="hover:bg-gray-100">
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -109,7 +108,7 @@ const NoticeTable = ({
 
               <TableCell>
                 <Button
-                  onClick={() => setConfirmDeleteId(notice._id)}
+                  onClick={() => setConfirmDeleteId(notice._id.toString())}
                   variant={"outline"}
                   className="text-red-500"
                 >

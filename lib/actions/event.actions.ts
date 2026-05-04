@@ -50,7 +50,7 @@ export async function updateEvent({ event, path }: UpdateEventParams) {
   try {
     await connectToDatabase();
 
-    const eventToUpdate = await Event.findById(event._id);
+    const eventToUpdate = await Event.findById(event._id.toString());
     if (!eventToUpdate) {
       throw new Error("Event not found");
     }
@@ -58,7 +58,7 @@ export async function updateEvent({ event, path }: UpdateEventParams) {
     const updatedEvent = await Event.findByIdAndUpdate(
       event._id,
       { ...event },
-      { new: true }
+      { new: true },
     );
     revalidatePath(path);
 
@@ -92,11 +92,9 @@ export async function getAllEvents({
     const titleCondition = query
       ? { title: { $regex: query, $options: "i" } }
       : {};
-    
+
     const conditions = {
-      $and: [
-        titleCondition,
-      ],
+      $and: [titleCondition],
     };
 
     const skipAmount = (Number(page) - 1) * limit;
@@ -105,7 +103,7 @@ export async function getAllEvents({
       .skip(skipAmount)
       .limit(limit);
 
-    const events = await (eventsQuery);
+    const events = await eventsQuery;
     const eventsCount = await Event.countDocuments(conditions);
 
     return {

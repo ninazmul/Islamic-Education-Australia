@@ -74,7 +74,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
         if (newEvent) {
           form.reset();
-          router.push(`/events/${newEvent._id}`);
+          router.push(`/events/${newEvent._id.toString()}`);
         }
       } else if (type === "Update" && userId && eventId) {
         const updatedEvent = await updateEvent({
@@ -85,7 +85,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
         if (updatedEvent) {
           form.reset();
-          router.push(`/events/${updatedEvent._id}`);
+          router.push(`/events/${updatedEvent._id.toString()}`);
         }
       }
     } catch (error) {

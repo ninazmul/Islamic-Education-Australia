@@ -30,7 +30,7 @@ const AdminTable = ({
     const filtered = admins.filter(
       (admin) =>
         admin.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        admin.email.toLowerCase().includes(searchQuery.toLowerCase())
+        admin.email.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     if (sortKey) {
@@ -111,7 +111,7 @@ const AdminTable = ({
         </TableHeader>
         <TableBody>
           {paginatedAdmins.map((admin, index) => (
-            <TableRow key={admin._id} className="hover:bg-gray-100">
+            <TableRow key={admin._id.toString()} className="hover:bg-gray-100">
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -119,7 +119,7 @@ const AdminTable = ({
               <TableCell>{admin.email}</TableCell>
               <TableCell>
                 <Button
-                  onClick={() => setConfirmDeleteId(admin._id)}
+                  onClick={() => setConfirmDeleteId(admin._id.toString())}
                   variant={"outline"}
                   className="text-red-500"
                 >
