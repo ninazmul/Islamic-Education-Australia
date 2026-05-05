@@ -1,40 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ImFacebook } from "react-icons/im";
-import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 
 const teamMembers = [
   {
     name: "Mizan Howlader",
     role: "Finance & Community Leader",
     image: "/assets/images/Teams/MH IEA Profile Photo 3.png",
-    socials: {
-      facebook: "https://facebook.com/johndoe",
-      twitter: "https://twitter.com/johndoe",
-      linkedin: "https://linkedin.com/in/johndoe",
-    },
+    description:
+      "Mizan Howlader is a dedicated finance professional with over 30 years of experience in the banking and financial services industry. He has a strong background in financial analysis, risk management, and strategic planning. Mizan is passionate about community development and has been actively involved in various initiatives aimed at improving financial literacy and economic empowerment within underserved communities. His expertise in finance, combined with his commitment to social impact, makes him a valuable asset to any organization focused on driving positive change.",
   },
   {
     name: "Sheikh Youssef Hassan",
-    role: "Educator & Relgious Leader",
+    role: "Educator & Religious Leader",
     image: "/assets/images/Teams/Sheikh Youssef Hassan.jpg",
-    socials: {
-      facebook: "https://facebook.com/janesmith",
-      twitter: "https://twitter.com/janesmith",
-      linkedin: "https://linkedin.com/in/janesmith",
-    },
+    description:
+      "Sheikh Youssef Hassan is a respected Islamic scholar and educator with over 15 years of experience in teaching and community leadership. He has a deep understanding of Islamic theology and jurisprudence, and is known for his engaging teaching style and ability to connect with students of all ages. Sheikh Youssef has been instrumental in fostering interfaith dialogue and promoting a deeper understanding of Islam within the broader community.",
   },
   {
     name: "AKM Moniruzzaman",
     role: "IT Specialist & Islamic Finance Advocate",
     image: "/assets/images/Teams/AK Moniruzzaman.jpg",
-    socials: {
-      facebook: "https://facebook.com/janesmith",
-      twitter: "https://twitter.com/janesmith",
-      linkedin: "https://linkedin.com/in/janesmith",
-    },
+    description:
+      "AKM Moniruzzaman is a seasoned IT specialist with over 12 years of experience in the technology sector. He has a strong background in software development, cybersecurity, and IT infrastructure management. Moniruzzaman is also an advocate for Islamic finance, working to integrate Sharia-compliant financial solutions into the tech industry. His expertise in both IT and Islamic finance makes him a valuable asset to any organization looking to innovate while adhering to ethical financial principles.",
   },
 ];
 
@@ -42,42 +30,35 @@ const OurTeam = () => {
   return (
     <div className="relative h-auto overflow-hidden p-10 lg:p-20">
       <div className="w-full space-y-4 text-center">
-        <h3 className="p-medium-12 md:p-medium-16 text-primary-500">
-          Our Team members
+        <h3 className="p-medium-12 md:p-medium-16 text-primary-500 uppercase tracking-wider">
+          Our Team Members
         </h3>
         <h1 className="h2-bold">
-          Our <span className="text-primary-500">Team</span>
+          Meet Our <span className="text-primary-500">Leadership</span>
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+      <div className="flex flex-col gap-8 mt-12 max-w-5xl mx-auto">
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center space-y-4 p-6 shadow-lg rounded-md"
+            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
-            <div className="flex justify-center w-full relative">
-              <Image
-                src={member.image}
-                width={500}
-                height={500}
-                alt={member.name}
-                className="w-full md:w-2/3 rounded-lg shadow"
-              />
-            </div>
-            <div className="pt-4">
-              <h2 className="font-bold text-lg">{member.name}</h2>
-              <h3 className="text-primary-500">{member.role}</h3>
-              <div className="flex items-center justify-center gap-4 py-4">
-                <Link href={member.socials.facebook} target="_blank">
-                  <ImFacebook className="size-8 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-                <Link href={member.socials.twitter} target="_blank">
-                  <FaXTwitter className="size-8 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
-                <Link href={member.socials.linkedin} target="_blank">
-                  <FaLinkedinIn className="size-8 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-                </Link>
+            <div className="w-full md:w-1/3 bg-gray-50/50 flex items-center justify-center p-8 shrink-0">
+              <div className="relative w-48 h-48 md:w-56 md:h-56">
+                <Image
+                  src={member.image}
+                  fill
+                  alt={member.name}
+                  className="object-cover rounded-full shadow-sm border-4 border-white"
+                />
               </div>
+            </div>
+            <div className="w-full md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
+              <h2 className="text-2xl font-bold text-gray-900">{member.name}</h2>
+              <h3 className="text-primary-500 font-medium mt-1 mb-4 text-lg">{member.role}</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {member.description}
+              </p>
             </div>
           </div>
         ))}
