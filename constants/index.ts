@@ -23,10 +23,10 @@ export const headerLinks = [
     label: "Resources",
     route: "/resources",
   },
-  // {
-  //   label: "Our Partners",
-  //   route: "/partners",
-  // },
+  {
+    label: "Our Partners",
+    route: "/partners",
+  },
   {
     label: "Contact Us",
     route: "/contact",
