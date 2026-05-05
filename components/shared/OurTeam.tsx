@@ -30,33 +30,36 @@ const OurTeam = () => {
   return (
     <div className="relative h-auto overflow-hidden p-10 lg:p-20">
       <div className="w-full space-y-4 text-center">
-        <h3 className="p-medium-12 md:p-medium-16 text-primary-500 uppercase tracking-wider">
-          Our Team Members
+        <h3 className="p-medium-12 md:p-medium-16 text-primary-500">
+          Our Team members
         </h3>
         <h1 className="h2-bold">
-          Meet Our <span className="text-primary-500">Leadership</span>
+          Our <span className="text-primary-500">Team</span>
         </h1>
       </div>
-      <div className="flex flex-col gap-8 mt-12 max-w-5xl mx-auto">
+      <div className="flex flex-col gap-24 lg:gap-32 mt-20 mx-auto w-full max-w-7xl">
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
+            className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center justify-around gap-16 lg:gap-0 w-full`}
           >
-            <div className="w-full md:w-1/3 bg-gray-50/50 flex items-center justify-center p-8 shrink-0">
-              <div className="relative w-48 h-48 md:w-56 md:h-56">
-                <Image
-                  src={member.image}
-                  fill
-                  alt={member.name}
-                  className="object-cover rounded-full shadow-sm border-4 border-white"
-                />
-              </div>
+            <div className="flex justify-center w-full lg:w-1/2 relative mt-8 lg:mt-0">
+              <Image
+                src={member.image}
+                width={500}
+                height={500}
+                alt={member.name}
+                className="w-full md:w-2/3 z-10"
+              />
+              <div className="absolute -right-[7%] md:right-[11.5%] lg:right-[8%] -top-[12%] md:-top-[13%] lg:-top-[20%] rounded-none p-16 md:p-20 bg-yellow-400 " />
+              <div className="absolute -left-[7%] md:left-[11.5%] lg:left-[8%] -bottom-[12%] md:-bottom-[12%] lg:-bottom-[20%] rounded-none p-16 md:p-20 bg-yellow-400 " />
             </div>
-            <div className="w-full md:w-2/3 p-8 md:p-10 flex flex-col justify-center">
-              <h2 className="text-2xl font-bold text-gray-900">{member.name}</h2>
-              <h3 className="text-primary-500 font-medium mt-1 mb-4 text-lg">{member.role}</h3>
-              <p className="text-gray-600 leading-relaxed">
+            <div className={`w-full lg:w-1/2 space-y-4 ${index % 2 !== 0 ? 'lg:pl-0 lg:pr-12' : 'lg:pr-0 lg:pl-12'}`}>
+              <h2 className="h2-bold">{member.name}</h2>
+              <h3 className="p-medium-12 md:p-medium-16 text-primary-500">
+                {member.role}
+              </h3>
+              <p className="p-regular-16 md:p-regular-20 text-muted-foreground">
                 {member.description}
               </p>
             </div>
